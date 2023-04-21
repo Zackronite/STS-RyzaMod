@@ -11,12 +11,11 @@
   },
   "${modID}:Craft": {
     "NAME": "Craft",
-    "DESCRIPTION": "Craft with your next 2 elements.",
-    "UPGRADE_DESCRIPTION": "Craft with your next 3 elements."
+    "DESCRIPTION": "Get 1 Magma Powder."
   },
   "${modID}:Synthesize": {
     "NAME": "Synthesize",
-    "DESCRIPTION": "Channel 1 Fire and 1 Ice."
+    "DESCRIPTION": "Synthesize"
   },
   "${modID}:BurningStrike": {
     "NAME": "Burning Strike",
@@ -33,5 +32,9 @@
   "${modID}:WitchsPotion": {
     "NAME": "Witch's Potion",
     "DESCRIPTION": "Gain !B! block and apply 2 Vulnerable and 2 Weak."
+  },
+  "${modID}:MagmaPowder": {
+    "NAME": "Magma Powder",
+    "DESCRIPTION": "Hot stuff"
   }
 }

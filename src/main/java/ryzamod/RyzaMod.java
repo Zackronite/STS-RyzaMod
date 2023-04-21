@@ -3,12 +3,6 @@ package ryzamod;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.*;
-import com.megacrit.cardcrawl.helpers.CardHelper;
-import ryzamod.cards.BaseCard;
-import ryzamod.character.RyzaCharacter;
-import ryzamod.util.GeneralUtils;
-import ryzamod.util.KeywordInfo;
-import ryzamod.util.TextureLoader;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -20,9 +14,15 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
+import ryzamod.cards.BaseCard;
+import ryzamod.character.RyzaCharacter;
+import ryzamod.util.GeneralUtils;
+import ryzamod.util.KeywordInfo;
+import ryzamod.util.TextureLoader;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -36,7 +36,8 @@ public class RyzaMod implements
         EditCardsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
-        PostInitializeSubscriber {
+        PostInitializeSubscriber,
+        OnStartBattleSubscriber {
     public static ModInfo info;
     public static String modID;
     static { loadModInfo(); }
@@ -213,5 +214,10 @@ public class RyzaMod implements
                 .packageFilter(BaseCard.class) //In the same package as this class
                 .setDefaultSeen(true) //And marks them as seen in the compendium
                 .cards(); //Adds the cards
+    }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom abstractRoom) {
+        RyzaCharacter.materials.clear();
     }
 }

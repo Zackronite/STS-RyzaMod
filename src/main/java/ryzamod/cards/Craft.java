@@ -3,10 +3,12 @@ package ryzamod.cards;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
 import com.megacrit.cardcrawl.actions.defect.ThunderStrikeAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import ryzamod.cards.common.ExplosiveUni;
+import ryzamod.cards.materials.MagmaPowder;
 import ryzamod.character.RyzaCharacter;
 import ryzamod.util.CardInfo;
 
@@ -33,13 +35,8 @@ public class Craft extends BaseCard{
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
 
-    private static final int MAGIC = 1;
-    private static final int UPG_MAGIC = 1;
-
     public Craft() {
         super(cardInfo); //Pass the cardInfo to the BaseCard constructor.
-
-        setMagic(MAGIC, UPG_MAGIC);
     }
 
     public Craft(CardInfo cardInfo) {
@@ -48,8 +45,8 @@ public class Craft extends BaseCard{
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new EvokeOrbAction(1));
-        addToBot(new EvokeOrbAction(1));
+        RyzaCharacter.materials.addToTop(new MagmaPowder());
+        addToBot(new SFXAction("TINGSHA"));
     }
 
     @Override

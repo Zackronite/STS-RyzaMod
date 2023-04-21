@@ -9,6 +9,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.blue.Defend_Blue;
 import com.megacrit.cardcrawl.cards.green.Neutralize;
 import com.megacrit.cardcrawl.cards.red.Strike_Red;
@@ -22,8 +23,12 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
+import ryzamod.cards.materials.ElementType;
+import ryzamod.cards.materials.MaterialCard;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static ryzamod.RyzaMod.characterPath;
 import static ryzamod.RyzaMod.makeID;
@@ -37,6 +42,10 @@ public class RyzaCharacter extends CustomPlayer {
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 4;
+    public static CardGroup materials = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+    public static int tacticsLevel = 1;
+    public static int chainLevel = 1;
+    public static HashMap<ElementType, Integer> elementLevels = new HashMap<>();
 
     //Strings
     private static final String ID = makeID("Ryza"); //This should match whatever you have in the CharacterStrings.json file
