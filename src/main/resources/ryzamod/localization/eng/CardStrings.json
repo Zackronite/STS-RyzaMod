@@ -1,0 +1,37 @@
+{
+  "${modID}:ExampleCard": {
+    "NAME": "Name",
+    "DESCRIPTION": "Description.",
+    "UPGRADE_DESCRIPTION": "If you change the constructor of your card to use super(cardInfo, true); this will be the card's description when it is upgraded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:Craft": {
+    "NAME": "Craft",
+    "DESCRIPTION": "Craft with your next 2 elements.",
+    "UPGRADE_DESCRIPTION": "Craft with your next 3 elements."
+  },
+  "${modID}:Synthesize": {
+    "NAME": "Synthesize",
+    "DESCRIPTION": "Channel 1 Fire and 1 Ice."
+  },
+  "${modID}:BurningStrike": {
+    "NAME": "Burning Strike",
+    "DESCRIPTION": "Deal !D! damage and channel 1 Fire."
+  },
+  "${modID}:ExplosiveUni": {
+    "NAME": "Explosive Uni",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "${modID}:IceBomb": {
+    "NAME": "Ice Bomb",
+    "DESCRIPTION": "Gain !B! block."
+  },
+  "${modID}:WitchsPotion": {
+    "NAME": "Witch's Potion",
+    "DESCRIPTION": "Gain !B! block and apply 2 Vulnerable and 2 Weak."
+  }
+}
