@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.cardManip.ExhaustCardEffect;
-import ryzamod.cards.common.ExplosiveUni;
+import ryzamod.cards.common.*;
 import ryzamod.cards.materials.MaterialCard;
 import ryzamod.cards.materials.MaterialCategory;
 import ryzamod.character.RyzaCharacter;
@@ -63,6 +63,41 @@ public class SynthesizeAction extends AbstractGameAction {
 
     static {
         recipes = new HashMap<>();
-        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.GUNPOWDER)), new ExplosiveUni());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.GUNPOWDER)), new Plajig());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.GUNPOWDER, MaterialCategory.LUMBER)), new Luft());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.LUMBER, MaterialCategory.GUNPOWDER)), new Luft());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.GUNPOWDER, MaterialCategory.STONE)), new GrandBomb());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.STONE, MaterialCategory.GUNPOWDER)), new GrandBomb());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.STONE,
+                MaterialCategory.GUNPOWDER, MaterialCategory.GUNPOWDER)), new NA());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.GUNPOWDER,
+                MaterialCategory.STONE, MaterialCategory.GUNPOWDER)), new NA());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.GUNPOWDER,
+                MaterialCategory.GUNPOWDER, MaterialCategory.STONE)), new NA());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.MAGICAL,
+                MaterialCategory.LUMBER, MaterialCategory.STONE, MaterialCategory.GUNPOWDER)), new Apocalypse());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.STONE,
+                MaterialCategory.STONE, MaterialCategory.STONE)), new GenesisHammer());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.STONE, MaterialCategory.STONE)), new AstronomicalClock());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.STONE)), new MigratoryCharm());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.FLOWERS)), new Nectar());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.FLOWERS, MaterialCategory.MAGICAL)), new Elixir());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.MAGICAL, MaterialCategory.FLOWERS)), new Elixir());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.POISONS)), new WitchsPotion());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.POISONS, MaterialCategory.POISONS)), new DemonicPotion());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.LUMBER)), new HandmadeStaff());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.LUMBER,
+                MaterialCategory.STONE, MaterialCategory.MAGICAL)), new SparklingReverie());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.THREAD)), new TravelersCoat());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.THREAD, MaterialCategory.STONE)), new FortressArmor());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.STONE, MaterialCategory.THREAD)), new FortressArmor());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.THREAD,
+                MaterialCategory.MAGICAL, MaterialCategory.MAGICAL)), new FairyCloak());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.MAGICAL,
+                MaterialCategory.THREAD, MaterialCategory.MAGICAL)), new FairyCloak());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.MAGICAL,
+                MaterialCategory.MAGICAL, MaterialCategory.THREAD)), new FairyCloak());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.MAGICAL, MaterialCategory.STONE)), new ManaLantern());
+        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.STONE, MaterialCategory.MAGICAL)), new ManaLantern());
     }
 }

@@ -15,11 +15,13 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
 import ryzamod.cards.BaseCard;
 import ryzamod.character.RyzaCharacter;
+import ryzamod.relics.BaseRelic;
 import ryzamod.util.GeneralUtils;
 import ryzamod.util.KeywordInfo;
 import ryzamod.util.TextureLoader;
@@ -35,6 +37,7 @@ public class RyzaMod implements
         EditCharactersSubscriber,
         EditCardsSubscriber,
         EditStringsSubscriber,
+        EditRelicsSubscriber,
         EditKeywordsSubscriber,
         PostInitializeSubscriber,
         OnStartBattleSubscriber {
@@ -219,5 +222,22 @@ public class RyzaMod implements
     @Override
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
         RyzaCharacter.materials.clear();
+    }
+
+    @Override
+    public void receiveEditRelics() {
+        new AutoAdd(modID) //Loads files from this mod
+                .packageFilter(BaseRelic.class) //In the same package as this class
+                .any(BaseRelic.class, (info, relic) -> { //Run this code for any classes that extend this class
+                    if (relic.pool != null)
+                        BaseMod.addRelicToCustomPool(relic, relic.pool); //Register a custom character specific relic
+                    else
+                        BaseMod.addRelic(relic, relic.relicType); //Register a shared or base game character specific relic
+
+                    //If the class is annotated with @AutoAdd.Seen, it will be marked as seen, making it visible in the relic library.
+                    //If you want all your relics to be visible by default, just remove this if statement.
+                    if (info.seen)
+                        UnlockTracker.markRelicAsSeen(relic.relicId);
+                });
     }
 }

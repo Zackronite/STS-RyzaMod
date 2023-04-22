@@ -1,19 +1,26 @@
 package ryzamod.cards;
 
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import ryzamod.actions.SynthesizeAction;
+import ryzamod.cards.materials.flowers.LuckyClover;
+import ryzamod.cards.materials.gunpowder.MagmaPowder;
+import ryzamod.cards.materials.lumber.MossyDriftwood;
+import ryzamod.cards.materials.magical.HeavenlyString;
+import ryzamod.cards.materials.poisons.TemptingSap;
+import ryzamod.cards.materials.stone.Arknite;
+import ryzamod.cards.materials.thread.FluffyWool;
 import ryzamod.character.RyzaCharacter;
 import ryzamod.util.CardInfo;
 
 import static ryzamod.RyzaMod.makeID;
 
-public class Synthesize extends BaseCard{
+public class Gather extends BaseCard{
     private final static CardInfo cardInfo = new CardInfo(
-            "Synthesize", //Card ID. Will be prefixed with mod id, so the final ID will be "modID:MyCard" with whatever your mod's ID is.
-            1, //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
-            CardType.SKILL, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
+            "Gather", //Card ID. Will be prefixed with mod id, so the final ID will be "modID:MyCard" with whatever your mod's ID is.
+            2, //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
+            CardType.ATTACK, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
             CardTarget.SELF, //The target. Single target is ENEMY, all enemies is ALL_ENEMY. Look at cards similar to what you want to see what to use.
             CardRarity.BASIC, //Rarity. BASIC is for starting cards, then there's COMMON/UNCOMMON/RARE, and then SPECIAL and CURSE. SPECIAL is for cards you only get from events. Curse is for curses, except for special curses like Curse of the Bell and Necronomicurse.
             RyzaCharacter.Enums.CARD_COLOR //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or something similar for a basegame character color.
@@ -29,26 +36,43 @@ public class Synthesize extends BaseCard{
 
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int UPG_COST = 0;
 
-    public Synthesize() {
+    private static final int COST = 1;
+
+    private static final int MAGIC = 1;
+    private static final int UPG_MAGIC = 2;
+
+    public Gather() {
         super(cardInfo); //Pass the cardInfo to the BaseCard constructor.
 
-        setCostUpgrade(UPG_COST);
+        setMagic(MAGIC, UPG_MAGIC);
     }
 
-    public Synthesize(CardInfo cardInfo) {
+    public Gather(CardInfo cardInfo) {
         super(cardInfo);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-            addToBot(new SynthesizeAction());
+        RyzaCharacter.materials.addToTop(new MagmaPowder());
+        addToBot(new SFXAction("TINGSHA"));
+        RyzaCharacter.materials.addToTop(new MossyDriftwood());
+        addToBot(new SFXAction("TINGSHA"));
+        RyzaCharacter.materials.addToTop(new FluffyWool());
+        addToBot(new SFXAction("TINGSHA"));
+        RyzaCharacter.materials.addToTop(new Arknite());
+        addToBot(new SFXAction("TINGSHA"));
+        RyzaCharacter.materials.addToTop(new LuckyClover());
+        addToBot(new SFXAction("TINGSHA"));
+        RyzaCharacter.materials.addToTop(new HeavenlyString());
+        addToBot(new SFXAction("TINGSHA"));
+        RyzaCharacter.materials.addToTop(new TemptingSap());
+        addToBot(new SFXAction("TINGSHA"));
     }
+
 
     @Override
     public AbstractCard makeCopy() { //Optional
-        return new Synthesize();
+        return new Gather();
     }
 }
-

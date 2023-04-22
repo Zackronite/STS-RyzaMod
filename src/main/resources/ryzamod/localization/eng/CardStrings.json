@@ -9,32 +9,116 @@
       "Blizzard is a good example for this."
     ]
   },
-  "${modID}:Craft": {
-    "NAME": "Craft",
+  "${modID}:Gather": {
+    "NAME": "Gather",
     "DESCRIPTION": "Get 1 Magma Powder."
   },
   "${modID}:Synthesize": {
     "NAME": "Synthesize",
-    "DESCRIPTION": "Synthesize"
+    "DESCRIPTION": "Synthesize up to 4 materials."
   },
   "${modID}:BurningStrike": {
     "NAME": "Burning Strike",
     "DESCRIPTION": "Deal !D! damage and channel 1 Fire."
   },
-  "${modID}:ExplosiveUni": {
-    "NAME": "Explosive Uni",
-    "DESCRIPTION": "Deal !D! damage."
+  "${modID}:MagmaPowder": {
+    "NAME": "Magma Powder",
+    "DESCRIPTION": "Gunpowder. Crushed lava ore in a powdered form."
   },
-  "${modID}:IceBomb": {
-    "NAME": "Ice Bomb",
-    "DESCRIPTION": "Gain !B! block."
+  "${modID}:HeavenlyString": {
+    "NAME": "Heavenly String",
+    "DESCRIPTION": "Magical. A pure white thread reminiscent of angel feathers."
+  },
+  "${modID}:LuckyClover": {
+    "NAME": "Lucky Clover",
+    "DESCRIPTION": "Flower. As an alchemy ingredient, it doesn't really matter how many leaves there are."
+  },
+  "${modID}:TemptingSap": {
+    "NAME": "Tempting Sap",
+    "DESCRIPTION": "Poison. A dangerous sap that can melt absolutely anything."
+  },
+  "${modID}:Arknite": {
+    "NAME": "Arknite",
+    "DESCRIPTION": "Stone. An ore that contains mana."
+  },
+  "${modID}:FluffyWool": {
+    "NAME": "Fluffy Wool",
+    "DESCRIPTION": "Thread. A useful material gathered from sheep-type monsters."
+  },
+  "${modID}:MossyDriftwood": {
+    "NAME": "Mossy Driftwood",
+    "DESCRIPTION": "Lumber. A log completely covered in moss."
+  },
+  "${modID}:GrandBomb": {
+    "NAME": "Grand Bomb",
+    "DESCRIPTION": "Deal !D! damage to all enemies."
+  },
+  "${modID}:Plajig": {
+    "NAME": "Plajig",
+    "DESCRIPTION": "Deal !D! damage to all enemies."
+  },
+  "${modID}:Elixir": {
+    "NAME": "Elixir",
+    "DESCRIPTION": "Gain !M! regeneration."
+  },
+  "${modID}:AstronomicalClock": {
+    "NAME": "Astronomical Clock",
+    "DESCRIPTION": "Gain !M! strength and !M! dexterity."
+  },
+  "${modID}:Apocalypse": {
+    "NAME": "Apocalypse",
+    "DESCRIPTION": "Deal !D! damage to all enemies."
+  },
+  "${modID}:GenesisHammer": {
+    "NAME": "Genesis Hammer",
+    "DESCRIPTION": "Stun all enemies."
   },
   "${modID}:WitchsPotion": {
     "NAME": "Witch's Potion",
-    "DESCRIPTION": "Gain !B! block and apply 2 Vulnerable and 2 Weak."
+    "DESCRIPTION": "Gain !B! block and inflict !M! vulnerable and weaken."
   },
-  "${modID}:MagmaPowder": {
-    "NAME": "Magma Powder",
-    "DESCRIPTION": "Hot stuff"
+  "${modID}:HandmadeStaff": {
+    "NAME": "Handmade Staff",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "${modID}:SparklingReverie": {
+    "NAME": "Sparkling Reverie",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "${modID}:TravelersCoat": {
+    "NAME": "Traveler's Coat",
+    "DESCRIPTION": "Gain !B! block."
+  },
+  "${modID}:FortressArmor": {
+    "NAME": "Fortress Armor",
+    "DESCRIPTION": "Gain !B! block and 5 Plated Armor."
+  },
+  "${modID}:FairyCloak": {
+    "NAME": "Fairy Cloak",
+    "DESCRIPTION": "Lose 2 dexterity. Gain 1 Intangible."
+  },
+  "${modID}:ManaLantern": {
+    "NAME": "Mana Lantern",
+    "DESCRIPTION": "Gain !M! energy."
+  },
+  "${modID}:DemonicPotion": {
+  "NAME": "Demonic Potion",
+  "DESCRIPTION": "Inflict slow, weaken, and vulnerable on enemy."
+},
+  "${modID}:NA": {
+    "NAME": "N/A",
+    "DESCRIPTION": "Deal !D! damage to all enemies."
+  },
+  "${modID}:Luft": {
+    "NAME": "Luft",
+    "DESCRIPTION": "Deal !D! damage to all enemies."
+  },
+  "${modID}:Nectar": {
+    "NAME": "Nectar",
+    "DESCRIPTION": "Heal for !M!."
+  },
+  "${modID}:MigratoryCharm": {
+    "NAME": "Migratory Charm",
+    "DESCRIPTION": "Draw 1 card."
   }
 }

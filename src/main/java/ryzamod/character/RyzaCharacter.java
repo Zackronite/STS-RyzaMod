@@ -24,8 +24,11 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
+import ryzamod.cards.Gather;
+import ryzamod.cards.Synthesize;
 import ryzamod.cards.materials.ElementType;
 import ryzamod.cards.materials.MaterialCard;
+import ryzamod.relics.GatheringBasket;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -94,9 +97,14 @@ public class RyzaCharacter extends CustomPlayer {
         //If you want multiple of the same card, you have to add it multiple times.
         retVal.add(Strike_Red.ID);
         retVal.add(Strike_Red.ID);
+        retVal.add(Strike_Red.ID);
+        retVal.add(Strike_Red.ID);
         retVal.add(Defend_Blue.ID);
         retVal.add(Defend_Blue.ID);
-        retVal.add(Neutralize.ID);
+        retVal.add(Defend_Blue.ID);
+        retVal.add(Defend_Blue.ID);
+        retVal.add(Synthesize.ID);
+        retVal.add(Gather.ID);
 
         return retVal;
     }
@@ -105,7 +113,7 @@ public class RyzaCharacter extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         //IDs of starting relics. You can have multiple, but one is recommended.
-        retVal.add(BurningBlood.ID);
+        retVal.add(GatheringBasket.ID);
 
         return retVal;
     }

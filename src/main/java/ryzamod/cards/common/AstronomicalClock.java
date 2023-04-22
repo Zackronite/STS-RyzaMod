@@ -1,26 +1,25 @@
-package ryzamod.cards;
+package ryzamod.cards.common;
 
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
-import com.megacrit.cardcrawl.actions.defect.ThunderStrikeAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import ryzamod.cards.common.ExplosiveUni;
-import ryzamod.cards.materials.MagmaPowder;
+import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
+import ryzamod.cards.BaseCard;
 import ryzamod.character.RyzaCharacter;
 import ryzamod.util.CardInfo;
 
 import static ryzamod.RyzaMod.makeID;
 
-public class Craft extends BaseCard{
+public class AstronomicalClock extends BaseCard {
     private final static CardInfo cardInfo = new CardInfo(
-            "Craft", //Card ID. Will be prefixed with mod id, so the final ID will be "modID:MyCard" with whatever your mod's ID is.
-            2, //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
-            CardType.ATTACK, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
+            "AstronomicalClock", //Card ID. Will be prefixed with mod id, so the final ID will be "modID:MyCard" with whatever your mod's ID is.
+            0, //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
+            CardType.SKILL, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
             CardTarget.SELF, //The target. Single target is ENEMY, all enemies is ALL_ENEMY. Look at cards similar to what you want to see what to use.
-            CardRarity.BASIC, //Rarity. BASIC is for starting cards, then there's COMMON/UNCOMMON/RARE, and then SPECIAL and CURSE. SPECIAL is for cards you only get from events. Curse is for curses, except for special curses like Curse of the Bell and Necronomicurse.
+            CardRarity.COMMON, //Rarity. BASIC is for starting cards, then there's COMMON/UNCOMMON/RARE, and then SPECIAL and CURSE. SPECIAL is for cards you only get from events. Curse is for curses, except for special curses like Curse of the Bell and Necronomicurse.
             RyzaCharacter.Enums.CARD_COLOR //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or something similar for a basegame character color.
     );
 
@@ -35,22 +34,26 @@ public class Craft extends BaseCard{
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
 
-    public Craft() {
+    private static final int MAGIC = 1;
+
+    public AstronomicalClock() {
         super(cardInfo); //Pass the cardInfo to the BaseCard constructor.
+
+        setMagic(MAGIC);
     }
 
-    public Craft(CardInfo cardInfo) {
+    public AstronomicalClock(CardInfo cardInfo) {
         super(cardInfo);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        RyzaCharacter.materials.addToTop(new MagmaPowder());
-        addToBot(new SFXAction("TINGSHA"));
+        addToBot(new ApplyPowerAction(p, p, new StrengthPower(p,magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new DexterityPower(p,magicNumber)));
     }
 
     @Override
     public AbstractCard makeCopy() { //Optional
-        return new Craft();
+        return new AstronomicalClock();
     }
 }

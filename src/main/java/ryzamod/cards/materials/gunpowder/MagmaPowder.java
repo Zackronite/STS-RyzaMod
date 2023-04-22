@@ -1,8 +1,8 @@
-package ryzamod.cards.materials;
+package ryzamod.cards.materials.gunpowder;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import ryzamod.cards.materials.MaterialCard;
+import ryzamod.cards.materials.MaterialCategory;
 
 public class MagmaPowder extends MaterialCard {
     public MagmaPowder() {
