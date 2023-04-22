@@ -2,6 +2,8 @@ package ryzamod.cards.materials;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
+import java.util.ArrayList;
+
 public enum MaterialCategory {
     GUNPOWDER("Gunpowder", 0),
     THREAD("Thread", 0),
@@ -12,7 +14,7 @@ public enum MaterialCategory {
     MAGICAL("Magical", 2);
 
     private final String name;
-    // 0 for common (gunpowder, lumber, thread), 1 for uncommon (poisons, flowers, stone), 2 for rare (magical)
+    // 0 for common, 1 for uncommon, 2 for rare
     private final int rarity;
 
     MaterialCategory(String name, int rarity) {
@@ -20,7 +22,7 @@ public enum MaterialCategory {
         this.rarity = rarity;
     }
 
-    public AbstractCard.CardRarity getRarity() {
+    public AbstractCard.CardRarity getCardRarity() {
         switch (this.rarity) {
             case 2:
                 return AbstractCard.CardRarity.RARE;
@@ -32,7 +34,31 @@ public enum MaterialCategory {
         }
     }
 
+    public int getRarity() {
+        return this.rarity;
+    }
+
     public String getName() {
         return this.name;
+    }
+
+    public static ArrayList<MaterialCategory> getCategoriesOfRarity(int r) {
+        ArrayList<MaterialCategory> categories = new ArrayList<>();
+        for (MaterialCategory mat : MaterialCategory.values()) {
+            if (r == -1 || mat.rarity == r) {
+                categories.add(mat);
+            }
+        }
+
+        return categories;
+    }
+
+    public static ArrayList<MaterialCategory> getCategoriesOfRarity(int[] rs) {
+        ArrayList<MaterialCategory> categories = new ArrayList<>();
+        for (int i : rs) {
+            categories.addAll(getCategoriesOfRarity(i));
+        }
+
+        return categories;
     }
 }

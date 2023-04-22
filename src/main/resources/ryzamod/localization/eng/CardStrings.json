@@ -11,7 +11,7 @@
   },
   "${modID}:Gather": {
     "NAME": "Gather",
-    "DESCRIPTION": "Get 1 Magma Powder."
+    "DESCRIPTION": "Gather 1 material."
   },
   "${modID}:Synthesize": {
     "NAME": "Synthesize",

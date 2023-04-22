@@ -1,5 +1,6 @@
 package ryzamod.cards.materials;
 
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import ryzamod.RyzaMod;
@@ -15,7 +16,7 @@ public abstract class MaterialCard extends BaseCard {
 
     public MaterialCard(String materialName, MaterialCategory materialCategory, int fire, int ice, int lightning, int wind) {
         // TODO: Change card type from status to material
-        super(new CardInfo(materialName, -2, CardType.STATUS, CardTarget.NONE, materialCategory.getRarity(), CardColor.COLORLESS));
+        super(new CardInfo(materialName, -2, CardType.STATUS, CardTarget.NONE, materialCategory.getCardRarity(), CardColor.COLORLESS));
         ID = RyzaMod.makeID(materialName);
         category = materialCategory;
         elementValues = new HashMap<>();
@@ -28,5 +29,13 @@ public abstract class MaterialCard extends BaseCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         // will never be used by materials (probably)
+    }
+
+    @Override
+    public int compareTo(AbstractCard other) {
+        if (other instanceof MaterialCard) {
+            return this.category.getRarity() - ((MaterialCard)other).category.getRarity();
+        }
+        return 1;
     }
 }
