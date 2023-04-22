@@ -48,6 +48,7 @@ public class RyzaCharacter extends CustomPlayer {
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
     public static CardGroup materials = new CardGroup(CardGroup.CardGroupType.CARD_POOL);
+    public static CardGroup crafts = new CardGroup(CardGroup.CardGroupType.CARD_POOL);
     public static int maxNumMaterials = 10;
     public static int tacticsLevel = 1;
     public static int chainLevel = 1;

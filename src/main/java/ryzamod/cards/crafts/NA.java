@@ -1,25 +1,23 @@
-package ryzamod.cards.common;
+package ryzamod.cards.crafts;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.SlowPower;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import ryzamod.cards.BaseCard;
 import ryzamod.character.RyzaCharacter;
 import ryzamod.util.CardInfo;
 
 import static ryzamod.RyzaMod.makeID;
 
-public class DemonicPotion extends BaseCard {
+public class NA extends BaseCard {
     private final static CardInfo cardInfo = new CardInfo(
-            "DemonicPotion", //Card ID. Will be prefixed with mod id, so the final ID will be "modID:MyCard" with whatever your mod's ID is.
+            "NA", //Card ID. Will be prefixed with mod id, so the final ID will be "modID:MyCard" with whatever your mod's ID is.
             0, //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
-            CardType.SKILL, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
-            CardTarget.ENEMY, //The target. Single target is ENEMY, all enemies is ALL_ENEMY. Look at cards similar to what you want to see what to use.
+            CardType.ATTACK, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
+            CardTarget.ALL_ENEMY, //The target. Single target is ENEMY, all enemies is ALL_ENEMY. Look at cards similar to what you want to see what to use.
             CardRarity.COMMON, //Rarity. BASIC is for starting cards, then there's COMMON/UNCOMMON/RARE, and then SPECIAL and CURSE. SPECIAL is for cards you only get from events. Curse is for curses, except for special curses like Curse of the Bell and Necronomicurse.
             RyzaCharacter.Enums.CARD_COLOR //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or something similar for a basegame character color.
     );
@@ -35,27 +33,25 @@ public class DemonicPotion extends BaseCard {
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
 
-    private static final int BLOCK = 8;
+    private static final int DAMAGE = 22;
 
-    public DemonicPotion() {
+    public NA() {
         super(cardInfo); //Pass the cardInfo to the BaseCard constructor.
 
-        setBlock(BLOCK);
+        setDamage(DAMAGE);
     }
 
-    public DemonicPotion(CardInfo cardInfo) {
+    public NA(CardInfo cardInfo) {
         super(cardInfo);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(m, p, new SlowPower(m, 1)));
-        addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, 5, false)));
-        addToBot(new ApplyPowerAction(m, p, new WeakPower(m, 5, false)));
+        addToBot(new DamageAllEnemiesAction(p, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 
     @Override
     public AbstractCard makeCopy() { //Optional
-        return new DemonicPotion();
+        return new NA();
     }
 }

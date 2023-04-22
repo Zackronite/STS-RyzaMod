@@ -1,4 +1,4 @@
-package ryzamod.cards.common;
+package ryzamod.cards.crafts;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;

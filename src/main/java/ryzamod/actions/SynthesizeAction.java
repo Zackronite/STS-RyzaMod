@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import com.megacrit.cardcrawl.vfx.combat.CardPoofEffect;
 import ryzamod.RyzaMod;
-import ryzamod.cards.common.*;
+import ryzamod.cards.crafts.*;
 import ryzamod.cards.materials.MaterialCard;
 import ryzamod.cards.materials.MaterialCategory;
 import ryzamod.character.RyzaCharacter;
