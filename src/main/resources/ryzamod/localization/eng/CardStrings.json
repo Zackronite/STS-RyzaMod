@@ -104,7 +104,7 @@
   "${modID}:DemonicPotion": {
   "NAME": "Demonic Potion",
   "DESCRIPTION": "Inflict slow, weaken, and vulnerable on enemy."
-  },
+},
   "${modID}:NA": {
     "NAME": "N/A",
     "DESCRIPTION": "Deal !D! damage to all enemies."
@@ -121,8 +121,44 @@
     "NAME": "Migratory Charm",
     "DESCRIPTION": "Draw 1 card."
   },
+  "${modID}:Initiator": {
+  "NAME": "Initiator",
+  "DESCRIPTION": "Innate. Exhaust. Gain temporary strength and dexterity."
+},
+  "${modID}:TakeShelter": {
+    "NAME": "Take Shelter",
+    "DESCRIPTION": "Gain 5 block. Gather 1 Lumber."
+  },
+  "${modID}:EfficientGathering": {
+    "NAME": "Efficient Gathering",
+    "DESCRIPTION": "Gather 1 random material at the start of turn."
+  },
+  "${modID}:GrandChariot": {
+    "NAME": "Grand Chariot",
+    "DESCRIPTION": "Deal !D! damage to all enemies."
+  },
+  "${modID}:PhotonQuasar": {
+    "NAME": "Photon Quasar",
+    "DESCRIPTION": "Gain strength and dexterity. Add 1 Void to discard."
+  },
+  "${modID}:Star": {
+    "NAME": "Star",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "${modID}:HunterGatherer": {
+    "NAME": "Hunter-gatherer",
+    "DESCRIPTION": "Deal !D! damage. Gather 1 Stone."
+  },
+  "${modID}:Salvage": {
+    "NAME": "Salvage",
+    "DESCRIPTION": "Exhaust 1 Card. Gather 2 materials."
+  },
+  "${modID}:ShiningTrail": {
+    "NAME": "Shining Trail",
+    "DESCRIPTION": "At the start of turn, add 1 Star to hand."
+  },
   "${modID}:IntelligentDesign": {
-    "NAME": "Intelligent Design",
+    "NAME": "IntelligentDesign",
     "DESCRIPTION": "Return all used crafted items this battle to your hand. Exhaust."
   }
 }

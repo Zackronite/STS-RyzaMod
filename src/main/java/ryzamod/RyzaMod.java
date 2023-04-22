@@ -64,7 +64,7 @@ public class RyzaMod implements
     private static final String ENERGY_ORB = characterPath("cardback/energy_orb.png");
     private static final String ENERGY_ORB_P = characterPath("cardback/energy_orb_p.png");
     private static final String SMALL_ORB = characterPath("cardback/small_orb.png");
-    private static final Color RYZA_PINK = new Color(255f/255f, 255f/255f, 255f/255f, 1f);
+    private static final Color RYZA_PINK = new Color(255f/255f, 0f/255f, 127f/255f, 1f);
     //red, green, blue, alpha. alpha is transparency, which should just be 1.
     //This is used to prefix the IDs of various objects like cards and relics,
     //to avoid conflicts between different mods using the same name for things.
@@ -79,13 +79,14 @@ public class RyzaMod implements
         logger.info(modID + " subscribed to BaseMod.");
     }
     public static void initialize() {
-        new RyzaMod();
+        RyzaMod ryzamod = new RyzaMod();
 
         BaseMod.addColor(RyzaCharacter.Enums.CARD_COLOR, RYZA_PINK,
                 BG_ATTACK, BG_SKILL, BG_POWER, ENERGY_ORB,
                 BG_ATTACK_P, BG_SKILL_P, BG_POWER_P, ENERGY_ORB_P,
                 SMALL_ORB);
     }
+
     @Override
     public void receivePostInitialize() {
         //This loads the image used as an icon in the in-game mods menu.

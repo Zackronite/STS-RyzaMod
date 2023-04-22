@@ -16,5 +16,17 @@
     "DESCRIPTIONS": [
       "Your tactics level will no longer reset every turn."
     ]
+  },
+  "${modID}:EfficientGatheringPower": {
+    "NAME": "Efficient Gathering",
+    "DESCRIPTIONS": [
+      "Gather efficiently."
+    ]
+  },
+  "${modID}:ShiningTrailPower": {
+    "NAME": "Shining Trail",
+    "DESCRIPTIONS": [
+      "Gain 1 Star on turn start."
+    ]
   }
 }

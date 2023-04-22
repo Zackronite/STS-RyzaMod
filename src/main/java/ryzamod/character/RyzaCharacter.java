@@ -70,9 +70,9 @@ public class RyzaCharacter extends CustomPlayer {
         //Library color is basically the same as card color, but you need both because that's how the game was made.
         @SpireEnum
         public static AbstractPlayer.PlayerClass RYZA_CHARACTER;
-        @SpireEnum(name = "RYZA_PINK_COLOR") // These two MUST match. Change it to something unique for your character.
+        @SpireEnum(name = "RYZA_PINK") // These two MUST match. Change it to something unique for your character.
         public static AbstractCard.CardColor CARD_COLOR;
-        @SpireEnum(name = "RYZA_PINK_COLOR") @SuppressWarnings("unused")
+        @SpireEnum(name = "RYZA_PINK") @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
     }
 
