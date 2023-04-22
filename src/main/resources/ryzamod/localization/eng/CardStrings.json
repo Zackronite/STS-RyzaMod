@@ -104,7 +104,7 @@
   "${modID}:DemonicPotion": {
   "NAME": "Demonic Potion",
   "DESCRIPTION": "Inflict slow, weaken, and vulnerable on enemy."
-},
+  },
   "${modID}:NA": {
     "NAME": "N/A",
     "DESCRIPTION": "Deal !D! damage to all enemies."
@@ -120,5 +120,9 @@
   "${modID}:MigratoryCharm": {
     "NAME": "Migratory Charm",
     "DESCRIPTION": "Draw 1 card."
+  },
+  "${modID}:IntelligentDesign": {
+    "NAME": "Intelligent Design",
+    "DESCRIPTION": "Return all used crafted items this battle to your hand. Exhaust."
   }
 }

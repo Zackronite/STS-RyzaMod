@@ -10,7 +10,7 @@ import ryzamod.util.CardInfo;
 
 import static ryzamod.RyzaMod.makeID;
 
-public class TravelersCoat extends BaseCard {
+public class TravelersCoat extends CraftCard {
     private final static CardInfo cardInfo = new CardInfo(
             "TravelersCoat", //Card ID. Will be prefixed with mod id, so the final ID will be "modID:MyCard" with whatever your mod's ID is.
             0, //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.

@@ -73,6 +73,7 @@ public class GatherMaterialAction extends AbstractGameAction {
             }
         }
 
+        // check exhume action, remove hover effect after done
         if (AbstractDungeon.gridSelectScreen.selectedCards.size() > 0 && !this.didGather) {
             for (AbstractCard mat : AbstractDungeon.gridSelectScreen.selectedCards) {
                 MaterialCard matToGain = (MaterialCard) mat;
