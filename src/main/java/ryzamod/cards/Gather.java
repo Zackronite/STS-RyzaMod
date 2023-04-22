@@ -1,10 +1,12 @@
 package ryzamod.cards;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import ryzamod.actions.GatherMaterialAction;
+import ryzamod.cards.materials.MaterialCategory;
 import ryzamod.cards.materials.flowers.LuckyClover;
 import ryzamod.cards.materials.gunpowder.MagmaPowder;
 import ryzamod.cards.materials.lumber.MossyDriftwood;
@@ -13,7 +15,11 @@ import ryzamod.cards.materials.poisons.TemptingSap;
 import ryzamod.cards.materials.stone.Arknite;
 import ryzamod.cards.materials.thread.FluffyWool;
 import ryzamod.character.RyzaCharacter;
+import ryzamod.powers.MindfulnessPower;
 import ryzamod.util.CardInfo;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static ryzamod.RyzaMod.makeID;
 
@@ -55,7 +61,12 @@ public class Gather extends BaseCard{
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GatherMaterialAction(3, false));
+        addToBot(new GatherMaterialAction(3, false, new ArrayList<MaterialCategory>(Arrays.asList(
+                MaterialCategory.LUMBER,
+                MaterialCategory.THREAD,
+                MaterialCategory.GUNPOWDER
+        ))));
+        addToBot(new ApplyPowerAction(p, p, new MindfulnessPower(p, 1)));
     }
 
 

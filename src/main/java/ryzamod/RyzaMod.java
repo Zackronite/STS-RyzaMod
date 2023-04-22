@@ -12,15 +12,23 @@ import com.evacipated.cardcrawl.modthespire.ModInfo;
 import com.evacipated.cardcrawl.modthespire.Patcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
+import ryzamod.actions.ChangeChainAction;
+import ryzamod.actions.ChangeTacticsLevelAction;
 import ryzamod.cards.BaseCard;
 import ryzamod.character.RyzaCharacter;
+import ryzamod.powers.ChainPower;
+import ryzamod.powers.TacticsLevelPower;
 import ryzamod.relics.BaseRelic;
 import ryzamod.util.GeneralUtils;
 import ryzamod.util.KeywordInfo;
@@ -40,7 +48,8 @@ public class RyzaMod implements
         EditRelicsSubscriber,
         EditKeywordsSubscriber,
         PostInitializeSubscriber,
-        OnStartBattleSubscriber {
+        OnStartBattleSubscriber,
+        OnCardUseSubscriber {
     public static ModInfo info;
     public static String modID;
     static { loadModInfo(); }
@@ -221,7 +230,18 @@ public class RyzaMod implements
 
     @Override
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
+        // reset materials
         RyzaCharacter.materials.clear();
+        // set tactics level/chain
+        if (AbstractDungeon.player instanceof RyzaCharacter) {
+            RyzaCharacter player = (RyzaCharacter) AbstractDungeon.player;
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player,
+                    player,
+                    new TacticsLevelPower(player, RyzaCharacter.tacticsLevel)));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player,
+                    player,
+                    new ChainPower(player, RyzaCharacter.chainLevel)));
+        }
     }
 
     @Override
@@ -239,5 +259,21 @@ public class RyzaMod implements
                     if (info.seen)
                         UnlockTracker.markRelicAsSeen(relic.relicId);
                 });
+    }
+
+    @Override
+    public void receiveCardUsed(AbstractCard abstractCard) {
+        // tactics level
+        if (AbstractDungeon.player.hasPower(makeID("Tactics Level"))) {
+            if (abstractCard.type == AbstractCard.CardType.SKILL) {
+                AbstractDungeon.actionManager.addToBottom(new ChangeTacticsLevelAction(1));
+            }
+        }
+        // chain
+        if (AbstractDungeon.player.hasPower(makeID("Chain"))) {
+            if (abstractCard.type == AbstractCard.CardType.ATTACK) {
+                AbstractDungeon.actionManager.addToBottom(new ChangeChainAction(1));
+            }
+        }
     }
 }

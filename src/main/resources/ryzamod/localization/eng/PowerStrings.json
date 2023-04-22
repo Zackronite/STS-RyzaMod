@@ -1,8 +1,20 @@
 {
-  "${modID}:PowerID": {
-    "NAME": "Ultimate Power",
+  "${modID}:Chain": {
+    "NAME": "Chain",
     "DESCRIPTIONS": [
-      "You are Very Cool and Strong."
+      "Chain level 1 to 5"
+    ]
+  },
+  "${modID}:Tactics Level": {
+    "NAME": "Tactics Level",
+    "DESCRIPTIONS": [
+      "Tactics level 1 to 5"
+    ]
+  },
+  "${modID}:Mindfulness": {
+    "NAME": "Mindfulness",
+    "DESCRIPTIONS": [
+      "Your tactics level will no longer reset every turn."
     ]
   }
 }
