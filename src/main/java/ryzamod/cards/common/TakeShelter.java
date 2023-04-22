@@ -11,10 +11,15 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import ryzamod.actions.GatherMaterialAction;
 import ryzamod.cards.BaseCard;
+import ryzamod.cards.materials.MaterialCategory;
 import ryzamod.cards.materials.lumber.MossyDriftwood;
 import ryzamod.character.RyzaCharacter;
 import ryzamod.util.CardInfo;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static ryzamod.RyzaMod.makeID;
 
@@ -53,7 +58,7 @@ public class TakeShelter extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
-        RyzaCharacter.materials.addToTop(new MossyDriftwood());
+        addToBot(new GatherMaterialAction(1, false, new ArrayList<>(Arrays.asList(MaterialCategory.LUMBER))));
         addToBot(new SFXAction("TINGSHA"));
     }
 

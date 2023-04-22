@@ -2,7 +2,7 @@ package ryzamod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -14,9 +14,14 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import com.megacrit.cardcrawl.vfx.combat.CardPoofEffect;
 import ryzamod.RyzaMod;
 import ryzamod.cards.crafts.*;
+import ryzamod.cards.materials.ElementType;
 import ryzamod.cards.materials.MaterialCard;
 import ryzamod.cards.materials.MaterialCategory;
 import ryzamod.character.RyzaCharacter;
+import ryzamod.powers.ElementFirePower;
+import ryzamod.powers.ElementIcePower;
+import ryzamod.powers.ElementLightningPower;
+import ryzamod.powers.ElementWindPower;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,6 +50,12 @@ public class SynthesizeAction extends AbstractGameAction {
                 return;
             }
 
+            for (AbstractCard card : RyzaCharacter.materials.group) {
+                card.stopGlowing();
+                card.unhover();
+                card.unfadeOut();
+            }
+
             AbstractDungeon.gridSelectScreen.open(RyzaCharacter.materials, this.amount, true, TEXT[0]);
             this.tickDuration();
             return;
@@ -71,6 +82,28 @@ public class SynthesizeAction extends AbstractGameAction {
                     addToBot(new VFXAction(new ShowCardAndAddToHandEffect(craft.makeCopy(), (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F)));
                 } else {
                     addToBot(new VFXAction(new ShowCardAndAddToDiscardEffect(craft.makeCopy(), (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F)));
+                }
+
+                for (AbstractCard card : AbstractDungeon.gridSelectScreen.selectedCards) {
+                    HashMap<ElementType, Integer> evs = ((MaterialCard)card).elementValues;
+                    for (ElementType e : evs.keySet()) {
+                        int ev = evs.get(e);
+                        if (ev != 0) {
+                            switch (e) {
+                                case FIRE:
+                                    addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ElementFirePower(AbstractDungeon.player, ev)));
+                                    break;
+                                case ICE:
+                                    addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ElementIcePower(AbstractDungeon.player, ev)));
+                                    break;
+                                case WIND:
+                                    addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ElementWindPower(AbstractDungeon.player, ev)));
+                                    break;
+                                case LIGHTNING:
+                                    addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ElementLightningPower(AbstractDungeon.player, ev)));
+                            }
+                        }
+                    }
                 }
                 // addToBot(new MakeTempCardInHandAction(craft.makeCopy()));
                 this.didSynthesize = true;

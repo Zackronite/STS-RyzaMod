@@ -2,15 +2,21 @@ package ryzamod.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g3d.Material;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.BurningBlood;
 import ryzamod.RyzaMod;
+import ryzamod.actions.GatherMaterialAction;
+import ryzamod.cards.materials.MaterialCategory;
 import ryzamod.cards.materials.gunpowder.MagmaPowder;
 import ryzamod.cards.materials.lumber.MossyDriftwood;
 import ryzamod.cards.materials.thread.FluffyWool;
 import ryzamod.character.RyzaCharacter;
 import ryzamod.util.TextureLoader;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 import static ryzamod.RyzaMod.relicPath;
@@ -38,21 +44,7 @@ public class GatheringBasket extends BaseRelic {
     @Override
     public void atBattleStart() {
         this.flash();
-        Random rand = new Random();
-        int upperbound = 3;
-        int int_random = rand.nextInt(upperbound);
-        if (int_random == 0) {
-            RyzaCharacter.materials.addToTop(new MagmaPowder());
-            this.addToBot(new SFXAction("TINGSHA"));
-        }
-        if (int_random == 1) {
-            RyzaCharacter.materials.addToTop(new MossyDriftwood());
-            this.addToBot(new SFXAction("TINGSHA"));
-        }
-        if (int_random == 2) {
-            RyzaCharacter.materials.addToTop(new FluffyWool());
-            this.addToBot(new SFXAction("TINGSHA"));
-        }
+        addToBot(new GatherMaterialAction(1, true, MaterialCategory.getCategoriesOfRarity(0)));
     }
     public AbstractRelic makeCopy() {
         return new GatheringBasket();

@@ -5,10 +5,7 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.UIStrings;
 import ryzamod.cards.crafts.CraftCard;
 
 public class IntelligentDesignAction extends AbstractGameAction {
@@ -18,7 +15,6 @@ public class IntelligentDesignAction extends AbstractGameAction {
         this.p = AbstractDungeon.player;
         this.setValues(this.p, AbstractDungeon.player, this.amount);
         this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_FAST;
     }
 
     @Override
@@ -31,25 +27,23 @@ public class IntelligentDesignAction extends AbstractGameAction {
             }
         }
 
-        if (this.duration == Settings.ACTION_DUR_FAST) {
-            if (exhaustPileOnlyCrafts.isEmpty()) {
-                this.isDone = true;
-                return;
-            } else {
-                for (AbstractCard card : exhaustPileOnlyCrafts.group) {
-                    if (this.p.hand.size() == 10) {
-                        this.p.discardPile.addToTop(card);
-                    } else {
-                        // this.p.hand.addToHand(card);
-                        addToBot(new MakeTempCardInHandAction(card));
-                    }
-                    this.p.exhaustPile.removeCard(card);
+        if (exhaustPileOnlyCrafts.isEmpty()) {
+            this.isDone = true;
+            return;
+        } else {
+            for (AbstractCard card : exhaustPileOnlyCrafts.group) {
+                if (this.p.hand.size() == 10) {
+                    this.p.discardPile.addToTop(card);
+                } else {
+                    // this.p.hand.addToHand(card);
+                    addToBot(new MakeTempCardInHandAction(card));
                 }
-
-                this.p.hand.refreshHandLayout();
+                this.p.exhaustPile.removeCard(card);
             }
+
+            this.p.hand.refreshHandLayout();
         }
 
-        this.tickDuration();
+        this.isDone = true;
     }
 }

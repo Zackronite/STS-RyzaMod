@@ -28,5 +28,38 @@
     "DESCRIPTIONS": [
       "Gain 1 Star on turn start."
     ]
+  },
+  "${modID}:ElementFire": {
+    "NAME": "Fire Element",
+    "DESCRIPTIONS": [
+      "At the end of your turn, deal #b",
+      " damage to a random enemy #b",
+      " time.",
+      " times."
+    ]
+  },
+  "${modID}:ElementIce": {
+    "NAME": "Ice Element",
+    "DESCRIPTIONS": [
+      "At the end of your turn, gain #b",
+      " block."
+    ]
+  },
+  "${modID}:ElementLightning": {
+    "NAME": "Lightning Element",
+    "DESCRIPTIONS": [
+      "For every #b",
+      " lightning gained, obtain #b",
+      " energy."
+    ]
+  },
+  "${modID}:ElementWind": {
+    "NAME": "Wind Element",
+    "DESCRIPTIONS": [
+      "For every #b",
+      " wind gained, draw #b",
+      " card.",
+      " cards."
+    ]
   }
 }

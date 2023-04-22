@@ -61,12 +61,13 @@ public class Gather extends BaseCard{
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GatherMaterialAction(3, false, new ArrayList<MaterialCategory>(Arrays.asList(
+        /*addToBot(new GatherMaterialAction(3, false, new ArrayList<MaterialCategory>(Arrays.asList(
                 MaterialCategory.LUMBER,
                 MaterialCategory.THREAD,
                 MaterialCategory.GUNPOWDER
-        ))));
-        addToBot(new ApplyPowerAction(p, p, new MindfulnessPower(p, 1)));
+        ))));*/
+        addToBot(new GatherMaterialAction(3, false));
+        // addToBot(new ApplyPowerAction(p, p, new MindfulnessPower(p, 1)));
     }
 
 
