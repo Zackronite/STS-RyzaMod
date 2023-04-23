@@ -14,7 +14,6 @@ public enum MaterialCategory {
     MAGICAL("Magical", 2);
 
     private final String name;
-    // 0 for common, 1 for uncommon, 2 for rare
     private final int rarity;
 
     MaterialCategory(String name, int rarity) {

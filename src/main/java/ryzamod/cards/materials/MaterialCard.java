@@ -28,7 +28,6 @@ public abstract class MaterialCard extends BaseCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        // will never be used by materials (probably)
     }
 
     @Override
