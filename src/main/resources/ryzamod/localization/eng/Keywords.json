@@ -1,23 +1,81 @@
 [
   {
-    "PROPER_NAME": "This is displayed in the tooltip.",
+    "PROPER_NAME": "Craft",
     "NAMES": [
-      "these",
-      "are",
-      "detected",
-      "in",
-      "the",
-      "text"
+      "craft",
+      "crafts"
     ],
-    "DESCRIPTION": "This is displayed in the tooltip. Note, spaces are not allowed in NAMES. Also, they should be entirely lowercase. For multi-word keywords, see the next one."
+    "DESCRIPTION": "Craft cards are only obtainable through Synthesis and will always Exhaust."
   },
   {
-    "PROPER_NAME": "Multiword Keyword",
+    "PROPER_NAME": "Synthesis",
     "NAMES": [
-      "Multiword Keyword",
-      "multiword_keyword",
-      "multiword_keywords"
+      "synthesis",
+      "synthesize"
     ],
-    "DESCRIPTION": "Make sure the first element in the NAMES is the same as your PROPER_NAME. The rest should use _ to replace spaces and be entirely lowercase. In card text, you'll use the underscore versions."
+    "DESCRIPTION": "Consume Materials to create powerful Crafts. Your Element Value will increase according to the Materials consumed."
+  },
+  {
+    "PROPER_NAME": "Tactics Level",
+    "NAMES": [
+      "Tactics Level",
+      "tactics_level",
+      "tactics"
+    ],
+    "DESCRIPTION": "Tactics Level will increase for every skill played up to 5 and resets every turn by default."
+  },
+  {
+    "PROPER_NAME": "Chain",
+    "NAMES": [
+      "chain"
+    ],
+    "DESCRIPTION": "Chain will increase for every attack played up to 5 and resets every turn."
+  },
+  {
+    "PROPER_NAME": "Material",
+    "NAMES": [
+      "material",
+      "materials",
+      "gunpowder",
+      "lumber",
+      "thread",
+      "stone",
+      "poison",
+      "poisons",
+      "flower",
+      "flowers",
+      "magical"
+    ],
+    "DESCRIPTION": "Materials are used in Synthesis and can only be gathered through certain cards."
+  },
+  {
+    "PROPER_NAME": "Element Value",
+    "NAMES": [
+      "element",
+      "fire",
+      "fire_element",
+      "ice",
+      "ice_element",
+      "lightning",
+      "lighting_element",
+      "wind",
+      "wind_element"
+    ],
+    "DESCRIPTION": "Raising your Element Value will have special effects. NL #yFire: Deal damage at the end of your turn. NL #yIce: Gain Block at the end of your turn. NL #yLightning: Periodically gain Energy. NL #yWind: Periodically draw a card."
+  },
+  {
+    "PROPER_NAME": "Star",
+    "NAMES": [
+      "star",
+      "stars"
+    ],
+    "DESCRIPTION": "Stars are #b0 cost Attack cards which Exhaust."
+  },
+  {
+    "PROPER_NAME": "Creativity",
+    "NAMES": [
+      "creativity"
+    ],
+    "DESCRIPTION": "Creativity adds additional damage to Crafts."
   }
 ]

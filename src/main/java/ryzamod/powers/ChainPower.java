@@ -14,6 +14,35 @@ public class ChainPower extends BasePower {
     public ChainPower(AbstractCreature owner, int amount) {
         super(POWER_ID, PowerType.BUFF, false, owner, amount);
         this.description = powerStrings.DESCRIPTIONS[0];
+        if (this.amount >= 5) {
+            this.amount = 5;
+        }
+        if (this.amount <= 1) {
+            this.amount = 1;
+        }
+        this.canGoNegative = false;
+    }
+
+    public void stackPower(int stackAmount) {
+        this.fontScale = 8f;
+        this.amount += stackAmount;
+        if (this.amount >= 5) {
+            this.amount = 5;
+        }
+        if (this.amount <= 1) {
+            this.amount = 1;
+        }
+    }
+
+    public void reducePower(int reduceAmount) {
+        this.fontScale = 8f;
+        this.amount -= reduceAmount;
+        if (this.amount >= 5) {
+            this.amount = 5;
+        }
+        if (this.amount <= 1) {
+            this.amount = 1;
+        }
     }
 
     @Override

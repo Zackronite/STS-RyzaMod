@@ -26,7 +26,7 @@ public class Heliotrope extends BaseCard {
 
     public void applyPowers() {
         super.applyPowers();
-        int count = 1 * RyzaCharacter.materials.size();
+        int count = DRAW_AMT * RyzaCharacter.materials.size();
 
         this.rawDescription = this.cardStrings.DESCRIPTION + this.cardStrings.EXTENDED_DESCRIPTION[0] + count;
         if (count == 1) {

@@ -33,17 +33,47 @@ public class RyzaSmash extends BaseCard{
     public RyzaSmash() {
         super(cardInfo);
 
-        setDamage(DAMAGE, UPG_DAMAGE);
+        setMagic(DAMAGE, UPG_DAMAGE);
     }
 
     public RyzaSmash(CardInfo cardInfo) {
         super(cardInfo);
     }
 
+    public void calculateCardDamage(AbstractMonster mo) {
+        this.baseDamage = this.magicNumber * AbstractDungeon.player.getPower(makeID("Tactics Level")).amount;
+        super.calculateCardDamage(mo);
+        this.baseDamage = DAMAGE;
+        this.rawDescription = this.cardStrings.DESCRIPTION + this.cardStrings.EXTENDED_DESCRIPTION[0] + this.damage + this.cardStrings.EXTENDED_DESCRIPTION[1];
+        this.initializeDescription();
+    }
+
+    public void applyPowers() {
+        this.baseDamage = this.magicNumber * AbstractDungeon.player.getPower(makeID("Tactics Level")).amount;
+        super.applyPowers();
+        this.baseDamage = DAMAGE;
+        this.rawDescription = this.cardStrings.DESCRIPTION + this.cardStrings.EXTENDED_DESCRIPTION[0] + this.damage + this.cardStrings.EXTENDED_DESCRIPTION[1];
+        this.initializeDescription();
+    }
+
+    public void upgrade() {
+        if (!this.upgraded) {
+            this.upgradeName();
+            this.upgradeMagicNumber(UPG_DAMAGE);
+            this.initializeDescription();
+        }
+    }
+
+    public void onMoveToDiscard() {
+        this.rawDescription = this.cardStrings.DESCRIPTION;
+        this.initializeDescription();
+    }
+
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int tacticsLevel = AbstractDungeon.player.getPower(RyzaMod.makeID("Tactics Level")).amount;
-        addToBot(new DamageAction(m, new DamageInfo(p, (damage * tacticsLevel), DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        this.rawDescription = this.cardStrings.DESCRIPTION;
+        this.initializeDescription();
     }
 
     @Override

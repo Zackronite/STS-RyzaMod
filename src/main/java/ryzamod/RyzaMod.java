@@ -53,7 +53,7 @@ public class RyzaMod implements
     public static ModInfo info;
     public static String modID;
     static { loadModInfo(); }
-    public static final Logger logger = LogManager.getLogger(modID); //Used to output to the console.
+    public static final Logger logger = LogManager.getLogger(modID);
     private static final String resourcesFolder = "ryzamod";
     private static final String BG_ATTACK = characterPath("cardback/bg_attack.png");
     private static final String BG_ATTACK_P = characterPath("cardback/bg_attack_p.png");
@@ -65,18 +65,13 @@ public class RyzaMod implements
     private static final String ENERGY_ORB_P = characterPath("cardback/energy_orb_p.png");
     private static final String SMALL_ORB = characterPath("cardback/small_orb.png");
     private static final Color RYZA_PINK = new Color(255f/255f, 0f/255f, 127f/255f, 1f);
-    //red, green, blue, alpha. alpha is transparency, which should just be 1.
-    //This is used to prefix the IDs of various objects like cards and relics,
-    //to avoid conflicts between different mods using the same name for things.
+
     public static String makeID(String id) {
         return modID + ":" + id;
     }
 
-    //This will be called by ModTheSpire because of the @SpireInitializer annotation at the top of the class.
-
     public RyzaMod() {
-        BaseMod.subscribe(this); //This will make BaseMod trigger all the subscribers at their appropriate times.
-        logger.info(modID + " subscribed to BaseMod.");
+        BaseMod.subscribe(this);
     }
     public static void initialize() {
         new RyzaMod();
@@ -89,14 +84,9 @@ public class RyzaMod implements
 
     @Override
     public void receivePostInitialize() {
-        //This loads the image used as an icon in the in-game mods menu.
         Texture badgeTexture = TextureLoader.getTexture(resourcePath("badge.png"));
-        //Set up the mod information displayed in the in-game mods menu.
-        //The information used is taken from your pom.xml file.
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
     }
-
-    /*----------Localization----------*/
 
     //This is used to load the appropriate localization files based on language.
     private static String getLangString()
@@ -107,13 +97,7 @@ public class RyzaMod implements
 
     @Override
     public void receiveEditStrings() {
-        /*
-            First, load the default localization.
-            Then, if the current language is different, attempt to load localization for that language.
-            This results in the default localization being used for anything that might be missing.
-            The same process is used to load keywords slightly below.
-        */
-        loadLocalization(defaultLanguage); //no exception catching for default localization; you better have at least one that works.
+        loadLocalization(defaultLanguage);
         if (!defaultLanguage.equals(getLangString())) {
             try {
                 loadLocalization(getLangString());
@@ -125,8 +109,6 @@ public class RyzaMod implements
     }
 
     private void loadLocalization(String lang) {
-        //While this does load every type of localization, most of these files are just outlines so that you can see how they're formatted.
-        //Feel free to comment out/delete any that you don't end up using.
         BaseMod.loadCustomStringsFile(CardStrings.class,
                 localizationPath(lang, "CardStrings.json"));
         BaseMod.loadCustomStringsFile(CharacterStrings.class,
@@ -197,7 +179,6 @@ public class RyzaMod implements
     }
 
 
-    //This determines the mod's ID based on information stored by ModTheSpire.
     private static void loadModInfo() {
         Optional<ModInfo> infos = Arrays.stream(Loader.MODINFOS).filter((modInfo)->{
             AnnotationDB annotationDB = Patcher.annotationDBMap.get(modInfo.jarURL);
@@ -223,10 +204,10 @@ public class RyzaMod implements
 
     @Override
     public void receiveEditCards() {
-        new AutoAdd(modID) //Loads files from this mod
-                .packageFilter(BaseCard.class) //In the same package as this class
-                .setDefaultSeen(true) //And marks them as seen in the compendium
-                .cards(); //Adds the cards
+        new AutoAdd(modID)
+                .packageFilter(BaseCard.class)
+                .setDefaultSeen(true)
+                .cards();
     }
 
     @Override
@@ -247,16 +228,15 @@ public class RyzaMod implements
 
     @Override
     public void receiveEditRelics() {
-        new AutoAdd(modID) //Loads files from this mod
-                .packageFilter(BaseRelic.class) //In the same package as this class
-                .any(BaseRelic.class, (info, relic) -> { //Run this code for any classes that extend this class
+        new AutoAdd(modID)
+                .packageFilter(BaseRelic.class)
+                .any(BaseRelic.class, (info, relic) -> {
                     if (relic.pool != null)
                         BaseMod.addRelicToCustomPool(relic, relic.pool); //Register a custom character specific relic
                     else
                         BaseMod.addRelic(relic, relic.relicType); //Register a shared or base game character specific relic
 
                     //If the class is annotated with @AutoAdd.Seen, it will be marked as seen, making it visible in the relic library.
-                    //If you want all your relics to be visible by default, just remove this if statement.
                     if (info.seen)
                         UnlockTracker.markRelicAsSeen(relic.relicId);
                 });

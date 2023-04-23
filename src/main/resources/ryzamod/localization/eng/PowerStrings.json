@@ -2,19 +2,19 @@
   "${modID}:Chain": {
     "NAME": "Chain",
     "DESCRIPTIONS": [
-      "Chain level 1 to 5"
+      "Your current #yChain."
     ]
   },
   "${modID}:Tactics Level": {
     "NAME": "Tactics Level",
     "DESCRIPTIONS": [
-      "Tactics level 1 to 5"
+      "Your current #yTactics #yLevel."
     ]
   },
   "${modID}:Mindfulness": {
     "NAME": "Mindfulness",
     "DESCRIPTIONS": [
-      "Your tactics level will no longer reset every turn."
+      "Your #yTactics #yLevel will no longer reset every turn."
     ]
   },
   "${modID}:EfficientGatheringPower": {
@@ -26,7 +26,7 @@
   "${modID}:ShiningTrailPower": {
     "NAME": "Shining Trail",
     "DESCRIPTIONS": [
-      "Gain 1 Star on turn start."
+      "Gain 1 #yStar on turn start."
     ]
   },
   "${modID}:ElementFire": {
@@ -42,14 +42,14 @@
     "NAME": "Ice Element",
     "DESCRIPTIONS": [
       "At the end of your turn, gain #b",
-      " block."
+      " Block."
     ]
   },
   "${modID}:ElementLightning": {
     "NAME": "Lightning Element",
     "DESCRIPTIONS": [
       "For every #b",
-      " lightning gained, obtain #b",
+      " #yLightning gained, obtain #b",
       " energy."
     ]
   },
@@ -57,7 +57,7 @@
     "NAME": "Wind Element",
     "DESCRIPTIONS": [
       "For every #b",
-      " wind gained, draw #b",
+      " #yWind gained, draw #b",
       " card.",
       " cards."
     ]
@@ -66,7 +66,7 @@
     "NAME": "Milky Way",
     "DESCRIPTIONS": [
       "Gain #b",
-      " strength for each material gathered."
+      " strength for each #yMaterial gathered."
     ]
   },
   "${modID}:EssenceOfAlchemyPower": {

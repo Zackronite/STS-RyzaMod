@@ -1,23 +1,31 @@
 {
+  "${modID}:Strike_Ryza": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "${modID}:Defend_Ryza": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
   "${modID}:Gather": {
     "NAME": "Gather",
-    "DESCRIPTION": "Gather 1 material."
+    "DESCRIPTION": "Gather 3 ${modID}:Materials."
   },
   "${modID}:Synthesize": {
     "NAME": "Synthesize",
-    "DESCRIPTION": "Synthesize up to 4 materials."
+    "DESCRIPTION": "${modID}:Synthesize with up to 4 ${modID}:Materials."
   },
   "${modID}:BurningStrike": {
     "NAME": "Burning Strike",
-    "DESCRIPTION": "Deal !D! damage. NL If Chain is at least 2, deal !M! additional damage."
+    "DESCRIPTION": "Deal !D! damage. NL If ${modID}:Chain is at least 2, deal !M! additional damage."
   },
   "${modID}:ShiningStrike": {
     "NAME": "Shining Strike",
-    "DESCRIPTION": "Deal !D! damage. NL If Tactics Level is at least 2, deal !M! additional damage."
+    "DESCRIPTION": "Deal !D! damage. NL If ${modID}:Tactics_Level is at least 2, deal !M! additional damage."
   },
   "${modID}:Heliotrope": {
     "NAME": "Heliotrope",
-    "DESCRIPTION": "Draw a card for each material in your bag.",
+    "DESCRIPTION": "Draw a card for each ${modID}:Material in your bag.",
     "EXTENDED_DESCRIPTION": [
       " NL (Draw ",
       " card.)",
@@ -26,43 +34,43 @@
   },
   "${modID}:MilkyWay": {
     "NAME": "Milky Way",
-    "DESCRIPTION": "For each material you gather, gain 1 Strength."
+    "DESCRIPTION": "For each ${modID}:Material you gather, gain 1 Strength."
   },
   "${modID}:EssenceOfAlchemy": {
     "NAME": "Essence of Alchemy",
-    "DESCRIPTION": "Every turn, the first Craft you play will be played twice."
+    "DESCRIPTION": "Every turn, the first ${modID}:Craft you play will be played twice."
   },
   "${modID}:Silhouette": {
     "NAME": "Silhouette",
-    "DESCRIPTION": "Gain !M! Creativity."
+    "DESCRIPTION": "Gain !M! ${modID}:Creativity."
   },
   "${modID}:MagmaPowder": {
     "NAME": "Magma Powder",
-    "DESCRIPTION": "Gunpowder. Crushed lava ore in a powdered form."
+    "DESCRIPTION": "${modID}:Gunpowder. Crushed lava ore in a powdered form."
   },
   "${modID}:HeavenlyString": {
     "NAME": "Heavenly String",
-    "DESCRIPTION": "Magical. A pure white thread reminiscent of angel feathers."
+    "DESCRIPTION": "${modID}:Magical. A pure white thread reminiscent of angel feathers."
   },
   "${modID}:LuckyClover": {
     "NAME": "Lucky Clover",
-    "DESCRIPTION": "Flower. As an alchemy ingredient, it doesn't really matter how many leaves there are."
+    "DESCRIPTION": "${modID}:Flower. As an alchemy ingredient, it doesn't really matter how many leaves there are."
   },
   "${modID}:TemptingSap": {
     "NAME": "Tempting Sap",
-    "DESCRIPTION": "Poison. A dangerous sap that can melt absolutely anything."
+    "DESCRIPTION": "${modID}:Poison. A dangerous sap that can melt absolutely anything."
   },
   "${modID}:Arknite": {
     "NAME": "Arknite",
-    "DESCRIPTION": "Stone. An ore that contains mana."
+    "DESCRIPTION": "${modID}:Stone. An ore that contains mana."
   },
   "${modID}:FluffyWool": {
     "NAME": "Fluffy Wool",
-    "DESCRIPTION": "Thread. A useful material gathered from sheep-type monsters."
+    "DESCRIPTION": "${modID}:Thread. A useful material gathered from sheep-type monsters."
   },
   "${modID}:MossyDriftwood": {
     "NAME": "Mossy Driftwood",
-    "DESCRIPTION": "Lumber. A log completely covered in moss."
+    "DESCRIPTION": "${modID}:Lumber. A log completely covered in moss."
   },
   "${modID}:GrandBomb": {
     "NAME": "Grand Bomb",
@@ -118,7 +126,7 @@
   },
   "${modID}:DemonicPotion": {
   "NAME": "Demonic Potion",
-  "DESCRIPTION": "Inflict slow, weaken, and vulnerable on enemy."
+  "DESCRIPTION": "Inflict Slow, Weaken, and Vulnerable on enemy."
   },
   "${modID}:NA": {
     "NAME": "N/A",
@@ -142,11 +150,11 @@
 },
   "${modID}:TakeShelter": {
     "NAME": "Take Shelter",
-    "DESCRIPTION": "Gain 5 Block. Gather 1 Lumber."
+    "DESCRIPTION": "Gain 5 Block. Gather 1 ${modID}:Lumber."
   },
   "${modID}:EfficientGathering": {
     "NAME": "Efficient Gathering",
-    "DESCRIPTION": "Gather 1 random material at the start of turn."
+    "DESCRIPTION": "Gather 1 random ${modID}:Material at the start of your turn."
   },
   "${modID}:GrandChariot": {
     "NAME": "Grand Chariot",
@@ -158,31 +166,35 @@
   },
   "${modID}:Star": {
     "NAME": "Star",
-    "DESCRIPTION": "Deal !D! damage."
+    "DESCRIPTION": "Deal !D! damage. Exhaust."
   },
   "${modID}:HunterGatherer": {
     "NAME": "Hunter-gatherer",
-    "DESCRIPTION": "Deal !D! damage. Gather 1 Stone."
+    "DESCRIPTION": "Deal !D! damage. Gather 1 ${modID}:Stone."
   },
   "${modID}:Salvage": {
     "NAME": "Salvage",
-    "DESCRIPTION": "Exhaust 1 Card. Gather 2 materials."
+    "DESCRIPTION": "Exhaust 1 Card. Gather 2 ${modID}:Materials."
   },
   "${modID}:ShiningTrail": {
     "NAME": "Shining Trail",
-    "DESCRIPTION": "At the start of turn, add 1 Star to hand."
+    "DESCRIPTION": "At the start of turn, add 1 ${modID}:Star to hand."
   },
   "${modID}:IntelligentDesign": {
-    "NAME": "IntelligentDesign",
-    "DESCRIPTION": "Return all used crafted items this battle to your hand. Exhaust."
+    "NAME": "Intelligent Design",
+    "DESCRIPTION": "Return all used ${modID}:Crafts this battle to your hand. Exhaust."
   },
   "${modID}:RyzaSmash": {
-    "NAME": "RyzaSmash",
-    "DESCRIPTION": "Deal 4 damage for each level of Tactics."
+    "NAME": "Ryza Smash",
+    "DESCRIPTION": "Deal !M! damage for each level of your ${modID}:Tactics.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals ",
+      " damage.)"
+    ]
   },
   "${modID}:Shift": {
     "NAME": "Shift",
-    "DESCRIPTION": "Gain !B! Block. Gain 1 Chain. Draw 1 card."
+    "DESCRIPTION": "Gain !B! Block. Gain 1 ${modID}:Chain. Draw 1 card."
   },
   "${modID}:CoreRecycle": {
     "NAME": "Core Recycle",
@@ -190,12 +202,12 @@
   },
   "${modID}:BlazeRush": {
     "NAME": "Blaze Rush",
-    "DESCRIPTION": "Double Fire Power. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Triple Fire Power. Exhaust."
+    "DESCRIPTION": "Double ${modID}:Fire_Element. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Triple ${modID}:Fire_Element. Exhaust."
   },
   "${modID}:Scrounge": {
     "NAME": "Scrounge",
-    "DESCRIPTION": "Gather 1 Gunpowder, Thread, or Lumber. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gather 1 Gunpowder, Thread, or Lumber."
+    "DESCRIPTION": "Gather 1 ${modID}:Gunpowder, ${modID}:Thread, or ${modID}:Lumber. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gather 1 ${modID}:Gunpowder, ${modID}:Thread, or ${modID}:Lumber."
   }
 }

@@ -29,8 +29,8 @@ public class ShiningStrike extends BaseCard {
 
     public ShiningStrike() {
         super(cardInfo);
-        this.setDamage(9, 3);
-        this.setMagic(5);
+        this.setDamage(DAMAGE, UPG_DAMAGE);
+        this.setMagic(CHAIN_EFFECT);
     }
 
     public ShiningStrike(CardInfo cardInfo) {

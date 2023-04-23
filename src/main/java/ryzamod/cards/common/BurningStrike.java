@@ -29,8 +29,8 @@ public class BurningStrike extends BaseCard {
 
     public BurningStrike() {
         super(cardInfo);
-        this.setDamage(9, 3);
-        this.setMagic(5);
+        this.setDamage(DAMAGE, UPG_DAMAGE);
+        this.setMagic(CHAIN_EFFECT);
     }
 
     public BurningStrike(CardInfo cardInfo) {

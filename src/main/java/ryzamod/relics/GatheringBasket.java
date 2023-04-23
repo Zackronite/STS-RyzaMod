@@ -22,25 +22,16 @@ import java.util.Random;
 import static ryzamod.RyzaMod.relicPath;
 
 public class GatheringBasket extends BaseRelic {
-
-    /*
-     * https://github.com/daviscook477/BaseMod/wiki/Custom-Relics
-     *
-     * Gain 1 energy.
-     */
-
     // ID, images, text.
-
     public static final String NAME = "GatheringBasket";
     public static final String ID = RyzaMod.makeID("GatheringBasket");
-    private static final RelicTier RARITY = RelicTier.COMMON; //The relic's rarity.
-    private static final LandingSound SOUND = LandingSound.CLINK; //The sound played when the relic is clicked.
+    private static final RelicTier RARITY = RelicTier.COMMON;
+    private static final LandingSound SOUND = LandingSound.CLINK;
 
     public GatheringBasket() {
         super(ID, NAME, RyzaCharacter.Enums.CARD_COLOR, RelicTier.STARTER, LandingSound.MAGICAL);
     }
 
-    // Flash at the start of Battle.
     @Override
     public void atBattleStart() {
         this.flash();

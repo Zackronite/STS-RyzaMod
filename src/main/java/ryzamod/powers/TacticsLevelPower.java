@@ -14,6 +14,13 @@ public class TacticsLevelPower extends BasePower {
     public TacticsLevelPower(AbstractCreature owner, int amount) {
         super(POWER_ID, PowerType.BUFF, false, owner, amount);
         this.description = powerStrings.DESCRIPTIONS[0];
+        if (this.amount >= 5) {
+            this.amount = 5;
+        }
+        if (this.amount <= 1) {
+            this.amount = 1;
+        }
+        this.canGoNegative = false;
     }
 
     @Override
@@ -25,6 +32,28 @@ public class TacticsLevelPower extends BasePower {
                     addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, this.amount - 1));
                 }
             }
+        }
+    }
+
+    public void stackPower(int stackAmount) {
+        this.fontScale = 8f;
+        this.amount += stackAmount;
+        if (this.amount >= 5) {
+            this.amount = 5;
+        }
+        if (this.amount <= 1) {
+            this.amount = 1;
+        }
+    }
+
+    public void reducePower(int reduceAmount) {
+        this.fontScale = 8f;
+        this.amount -= reduceAmount;
+        if (this.amount >= 5) {
+            this.amount = 5;
+        }
+        if (this.amount <= 1) {
+            this.amount = 1;
         }
     }
 
