@@ -83,7 +83,6 @@ public class GatherMaterialAction extends AbstractGameAction {
 
                 // TODO: maybe add different sfx for different materials?
                 addToBot(new SFXAction("RELIC_DROP_MAGICAL"));
-
                 RyzaCharacter.materials.addToTop(matToGain);
             }
 

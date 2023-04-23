@@ -1,11 +1,6 @@
-package ryzamod.cards.uncommon;
+package ryzamod.cards.common;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import ryzamod.actions.GatherMaterialAction;
@@ -19,13 +14,13 @@ import java.util.Arrays;
 
 import static ryzamod.RyzaMod.makeID;
 
-public class Salvage extends BaseCard {
+public class Scrounge extends BaseCard {
     private final static CardInfo cardInfo = new CardInfo(
-            "Salvage",
-            1,
+            "Scrounge",
+            0,
             CardType.SKILL,
             CardTarget.SELF,
-            CardRarity.UNCOMMON,
+            CardRarity.COMMON,
             RyzaCharacter.Enums.CARD_COLOR
     );
 
@@ -33,23 +28,36 @@ public class Salvage extends BaseCard {
     public static final String ID = makeID(cardInfo.baseId);
 
 
-    public Salvage() {
-        super(cardInfo);
 
+    private static final int MAGIC = 1;
+    private static final int UPG_MAGIC = 2;
+
+    public Scrounge() {
+        super(cardInfo);
+        this.exhaust = true;
+        setMagic(MAGIC, UPG_MAGIC);
     }
 
-    public Salvage(CardInfo cardInfo) {
+    public Scrounge(CardInfo cardInfo) {
         super(cardInfo);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ExhaustAction(1, false));
-        addToBot(new GatherMaterialAction(2,true));
+        addToBot(new GatherMaterialAction(1, false, new ArrayList<>(Arrays.asList(MaterialCategory.GUNPOWDER,
+                MaterialCategory.THREAD, MaterialCategory.LUMBER))));
     }
+    public void upgrade() {
+        if (!this.upgraded) {
+            this.upgradeName();
+            this.exhaust = false;
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+        }
 
+    }
     @Override
     public AbstractCard makeCopy() { //Optional
-        return new Salvage();
+        return new Scrounge();
     }
 }

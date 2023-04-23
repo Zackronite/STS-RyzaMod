@@ -27,7 +27,7 @@ public class Gather extends BaseCard{
     private final static CardInfo cardInfo = new CardInfo(
             "Gather",
             0,
-            CardType.ATTACK,
+            CardType.SKILL,
             CardTarget.SELF,
             CardRarity.BASIC,
             RyzaCharacter.Enums.CARD_COLOR
