@@ -31,11 +31,13 @@ public class PhotonQuasar extends BaseCard {
 
     public static final String ID = makeID(cardInfo.baseId);
 
-
+    private static final int MAGIC = 1;
+    private static final int UPG_MAGIC = 1;
 
     public PhotonQuasar() {
         super(cardInfo);
 
+        setMagic(MAGIC, UPG_MAGIC);
         this.exhaust = true;
     }
 
@@ -45,8 +47,8 @@ public class PhotonQuasar extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 1)));
-        addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, 1)));
+        addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
         this.addToBot(new MakeTempCardInDiscardAction(new VoidCard(), 1));
     }
 

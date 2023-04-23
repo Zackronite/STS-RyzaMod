@@ -79,7 +79,7 @@ public class RyzaMod implements
         logger.info(modID + " subscribed to BaseMod.");
     }
     public static void initialize() {
-        RyzaMod ryzamod = new RyzaMod();
+        new RyzaMod();
 
         BaseMod.addColor(RyzaCharacter.Enums.CARD_COLOR, RYZA_PINK,
                 BG_ATTACK, BG_SKILL, BG_POWER, ENERGY_ORB,

@@ -78,7 +78,7 @@
   },
   "${modID}:AstronomicalClock": {
     "NAME": "Astronomical Clock",
-    "DESCRIPTION": "Gain !M! strength and !M! dexterity."
+    "DESCRIPTION": "Gain !M! Strength and !M! Dexterity."
   },
   "${modID}:Apocalypse": {
     "NAME": "Apocalypse",
@@ -90,7 +90,7 @@
   },
   "${modID}:WitchsPotion": {
     "NAME": "Witch's Potion",
-    "DESCRIPTION": "Gain !B! block and inflict !M! vulnerable and weaken."
+    "DESCRIPTION": "Gain !B! Block and inflict 2 Vulnerable and 2 Weak."
   },
   "${modID}:HandmadeStaff": {
     "NAME": "Handmade Staff",
@@ -102,15 +102,15 @@
   },
   "${modID}:TravelersCoat": {
     "NAME": "Traveler's Coat",
-    "DESCRIPTION": "Gain !B! block."
+    "DESCRIPTION": "Gain !B! Block."
   },
   "${modID}:FortressArmor": {
     "NAME": "Fortress Armor",
-    "DESCRIPTION": "Gain !B! block and 5 Plated Armor."
+    "DESCRIPTION": "Gain !B! Block and 5 Plated Armor."
   },
   "${modID}:FairyCloak": {
     "NAME": "Fairy Cloak",
-    "DESCRIPTION": "Lose 2 dexterity. Gain 1 Intangible."
+    "DESCRIPTION": "Lose 2 Dexterity. Gain 1 Intangible."
   },
   "${modID}:ManaLantern": {
     "NAME": "Mana Lantern",
@@ -130,7 +130,7 @@
   },
   "${modID}:Nectar": {
     "NAME": "Nectar",
-    "DESCRIPTION": "Heal for !M!."
+    "DESCRIPTION": "Heal !M! HP."
   },
   "${modID}:MigratoryCharm": {
     "NAME": "Migratory Charm",
@@ -138,11 +138,11 @@
   },
   "${modID}:Initiator": {
   "NAME": "Initiator",
-  "DESCRIPTION": "Innate. Exhaust. Gain temporary strength and dexterity."
+  "DESCRIPTION": "Innate. Gain !M! Strength and !M! Dexterity. Lose !M! Strength and !M! Dexterity. Exhaust. "
 },
   "${modID}:TakeShelter": {
     "NAME": "Take Shelter",
-    "DESCRIPTION": "Gain 5 block. Gather 1 Lumber."
+    "DESCRIPTION": "Gain 5 Block. Gather 1 Lumber."
   },
   "${modID}:EfficientGathering": {
     "NAME": "Efficient Gathering",
@@ -154,7 +154,7 @@
   },
   "${modID}:PhotonQuasar": {
     "NAME": "Photon Quasar",
-    "DESCRIPTION": "Gain strength and dexterity. Add 1 Void to discard."
+    "DESCRIPTION": "Gain !M! Strength and !M! Dexterity. Add 1 Void to discard."
   },
   "${modID}:Star": {
     "NAME": "Star",
@@ -175,5 +175,27 @@
   "${modID}:IntelligentDesign": {
     "NAME": "IntelligentDesign",
     "DESCRIPTION": "Return all used crafted items this battle to your hand. Exhaust."
+  },
+  "${modID}:RyzaSmash": {
+    "NAME": "RyzaSmash",
+    "DESCRIPTION": "Deal 4 damage for each level of Tactics."
+  },
+  "${modID}:Shift": {
+    "NAME": "Shift",
+    "DESCRIPTION": "Gain !B! Block. Gain 1 Chain. Draw 1 card."
+  },
+  "${modID}:CoreRecycle": {
+    "NAME": "Core Recycle",
+    "DESCRIPTION": "Deal !D! damage. If this kills an enemy, gain [E] [E] and draw 1 card."
+  },
+  "${modID}:BlazeRush": {
+    "NAME": "Blaze Rush",
+    "DESCRIPTION": "Double Fire Power. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Triple Fire Power. Exhaust."
+  },
+  "${modID}:Scrounge": {
+    "NAME": "Scrounge",
+    "DESCRIPTION": "Gather 1 Gunpowder, Thread, or Lumber. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gather 1 Gunpowder, Thread, or Lumber."
   }
 }

@@ -27,6 +27,7 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import ryzamod.cards.Gather;
+import ryzamod.cards.RyzaSmash;
 import ryzamod.cards.Synthesize;
 import ryzamod.cards.materials.ElementType;
 import ryzamod.cards.materials.MaterialCard;
@@ -102,13 +103,13 @@ public class RyzaCharacter extends CustomPlayer {
         retVal.add(Strike_Red.ID);
         retVal.add(Strike_Red.ID);
         retVal.add(Strike_Red.ID);
-        retVal.add(Strike_Red.ID);
         retVal.add(Defend_Blue.ID);
         retVal.add(Defend_Blue.ID);
         retVal.add(Defend_Blue.ID);
         retVal.add(Defend_Blue.ID);
         retVal.add(Synthesize.ID);
         retVal.add(Gather.ID);
+        retVal.add(RyzaSmash.ID);
 
         return retVal;
     }
