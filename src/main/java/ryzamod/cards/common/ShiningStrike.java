@@ -13,25 +13,25 @@ import ryzamod.cards.BaseCard;
 import ryzamod.character.RyzaCharacter.Enums;
 import ryzamod.util.CardInfo;
 
-public class BurningStrike extends BaseCard {
+public class ShiningStrike extends BaseCard {
     private static final CardInfo cardInfo;
     public static final String ID;
     private static final int DAMAGE = 9;
     private static final int CHAIN_EFFECT = 5;
     private static final int UPG_DAMAGE = 3;
 
-    public BurningStrike() {
+    public ShiningStrike() {
         super(cardInfo);
         this.setDamage(9, 3);
         this.setMagic(5);
     }
 
-    public BurningStrike(CardInfo cardInfo) {
+    public ShiningStrike(CardInfo cardInfo) {
         super(cardInfo);
     }
 
     public void calculateCardDamage(AbstractMonster mo) {
-        if (AbstractDungeon.player.hasPower(RyzaMod.makeID("Chain")) && AbstractDungeon.player.getPower(RyzaMod.makeID("Chain")).amount >= 2) {
+        if (AbstractDungeon.player.hasPower(RyzaMod.makeID("Tactics Level")) && AbstractDungeon.player.getPower(RyzaMod.makeID("Tactics Level")).amount >= 2) {
             int realBaseDamage = this.baseDamage;
             this.baseDamage += this.magicNumber;
             super.calculateCardDamage(mo);
@@ -42,7 +42,7 @@ public class BurningStrike extends BaseCard {
     }
 
     public void applyPowers() {
-        if (AbstractDungeon.player.hasPower(RyzaMod.makeID("Chain")) && AbstractDungeon.player.getPower(RyzaMod.makeID("Chain")).amount >= 2) {
+        if (AbstractDungeon.player.hasPower(RyzaMod.makeID("Tactics Level")) && AbstractDungeon.player.getPower(RyzaMod.makeID("Tactics Level")).amount >= 2) {
             int realBaseDamage = this.baseDamage;
             this.baseDamage += this.magicNumber;
             super.applyPowers();
@@ -57,11 +57,11 @@ public class BurningStrike extends BaseCard {
     }
 
     public AbstractCard makeCopy() {
-        return new BurningStrike();
+        return new ShiningStrike();
     }
 
     static {
-        cardInfo = new CardInfo("BurningStrike", 1, CardType.ATTACK, CardTarget.ENEMY, CardRarity.COMMON, Enums.CARD_COLOR);
+        cardInfo = new CardInfo("ShiningStrike", 1, CardType.ATTACK, CardTarget.ENEMY, CardRarity.COMMON, Enums.CARD_COLOR);
         ID = RyzaMod.makeID(cardInfo.baseId);
     }
 }

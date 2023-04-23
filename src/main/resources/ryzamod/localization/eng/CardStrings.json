@@ -1,14 +1,4 @@
 {
-  "${modID}:ExampleCard": {
-    "NAME": "Name",
-    "DESCRIPTION": "Description.",
-    "UPGRADE_DESCRIPTION": "If you change the constructor of your card to use super(cardInfo, true); this will be the card's description when it is upgraded.",
-    "EXTENDED_DESCRIPTION": [
-      "You can put more text in here.",
-      "If you need to use it for stuff.",
-      "Blizzard is a good example for this."
-    ]
-  },
   "${modID}:Gather": {
     "NAME": "Gather",
     "DESCRIPTION": "Gather 1 material."
@@ -19,7 +9,20 @@
   },
   "${modID}:BurningStrike": {
     "NAME": "Burning Strike",
-    "DESCRIPTION": "Deal !D! damage and channel 1 Fire."
+    "DESCRIPTION": "Deal !D! damage. NL If Chain is at least 2, deal !M! additional damage."
+  },
+  "${modID}:ShiningStrike": {
+    "NAME": "Shining Strike",
+    "DESCRIPTION": "Deal !D! damage. NL If Tactics Level is at least 2, deal !M! additional damage."
+  },
+  "${modID}:Heliotrope": {
+    "NAME": "Heliotrope",
+    "DESCRIPTION": "Draw a card for each material in your bag.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Draw ",
+      " card.)",
+      " cards.)"
+    ]
   },
   "${modID}:MagmaPowder": {
     "NAME": "Magma Powder",
@@ -104,7 +107,7 @@
   "${modID}:DemonicPotion": {
   "NAME": "Demonic Potion",
   "DESCRIPTION": "Inflict slow, weaken, and vulnerable on enemy."
-},
+  },
   "${modID}:NA": {
     "NAME": "N/A",
     "DESCRIPTION": "Deal !D! damage to all enemies."
