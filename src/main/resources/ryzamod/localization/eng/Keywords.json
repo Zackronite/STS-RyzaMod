@@ -11,7 +11,8 @@
     "PROPER_NAME": "Synthesis",
     "NAMES": [
       "synthesis",
-      "synthesize"
+      "synthesize",
+      "synthesized"
     ],
     "DESCRIPTION": "Consume Materials to create powerful Crafts. Your Element Value will increase according to the Materials consumed."
   },
@@ -51,6 +52,7 @@
   {
     "PROPER_NAME": "Element Value",
     "NAMES": [
+      "Element Value",
       "element",
       "fire",
       "fire_element",
