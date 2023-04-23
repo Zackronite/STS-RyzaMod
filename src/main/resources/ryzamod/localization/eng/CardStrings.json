@@ -24,6 +24,18 @@
       " cards.)"
     ]
   },
+  "${modID}:MilkyWay": {
+    "NAME": "Milky Way",
+    "DESCRIPTION": "For each material you gather, gain 1 Strength."
+  },
+  "${modID}:EssenceOfAlchemy": {
+    "NAME": "Essence of Alchemy",
+    "DESCRIPTION": "Every turn, the first Craft you play will be played twice."
+  },
+  "${modID}:Silhouette": {
+    "NAME": "Silhouette",
+    "DESCRIPTION": "Gain !M! Creativity."
+  },
   "${modID}:MagmaPowder": {
     "NAME": "Magma Powder",
     "DESCRIPTION": "Gunpowder. Crushed lava ore in a powdered form."

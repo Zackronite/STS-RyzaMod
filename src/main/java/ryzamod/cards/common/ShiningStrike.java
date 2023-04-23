@@ -14,8 +14,15 @@ import ryzamod.character.RyzaCharacter.Enums;
 import ryzamod.util.CardInfo;
 
 public class ShiningStrike extends BaseCard {
-    private static final CardInfo cardInfo;
-    public static final String ID;
+    private static final CardInfo cardInfo = new CardInfo(
+            "ShiningStrike",
+            1,
+            CardType.ATTACK,
+            CardTarget.ENEMY,
+            CardRarity.COMMON,
+            Enums.CARD_COLOR
+    );
+    public static final String ID = RyzaMod.makeID(cardInfo.baseId);
     private static final int DAMAGE = 9;
     private static final int CHAIN_EFFECT = 5;
     private static final int UPG_DAMAGE = 3;
@@ -58,10 +65,5 @@ public class ShiningStrike extends BaseCard {
 
     public AbstractCard makeCopy() {
         return new ShiningStrike();
-    }
-
-    static {
-        cardInfo = new CardInfo("ShiningStrike", 1, CardType.ATTACK, CardTarget.ENEMY, CardRarity.COMMON, Enums.CARD_COLOR);
-        ID = RyzaMod.makeID(cardInfo.baseId);
     }
 }

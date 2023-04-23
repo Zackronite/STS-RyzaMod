@@ -61,5 +61,34 @@
       " card.",
       " cards."
     ]
+  },
+  "${modID}:MilkyWayPower": {
+    "NAME": "Milky Way",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " strength for each material gathered."
+    ]
+  },
+  "${modID}:EssenceOfAlchemyPower": {
+    "NAME": "Essence of Alchemy",
+    "DESCRIPTIONS": [
+      "The first #yCraft you play every turn will be played twice."
+    ]
+  },
+  "${modID}:CoreChargePower": {
+    "NAME": "Core Charge",
+    "DESCRIPTIONS": [
+      "Your next #yCraft is played twice this turn.",
+      "Your next ",
+      " #yCrafts are played twice this turn."
+    ]
+  },
+  "${modID}:CreativityPower": {
+    "NAME": "Creativity",
+    "DESCRIPTIONS": [
+      "Increases #yCraft damage by #b",
+      "Decreases #yCraft damage by #b",
+      "."
+    ]
   }
 }

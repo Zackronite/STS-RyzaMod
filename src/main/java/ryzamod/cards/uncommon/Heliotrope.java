@@ -11,8 +11,8 @@ import ryzamod.character.RyzaCharacter.Enums;
 import ryzamod.util.CardInfo;
 
 public class Heliotrope extends BaseCard {
-    private static final CardInfo cardInfo;
-    public static final String ID;
+    private static final CardInfo cardInfo = new CardInfo("Heliotrope", 1, CardType.SKILL, CardTarget.SELF, CardRarity.UNCOMMON, Enums.CARD_COLOR);
+    public static final String ID = RyzaMod.makeID(cardInfo.baseId);
 
     private static final int DRAW_AMT = 1;
 
@@ -51,10 +51,5 @@ public class Heliotrope extends BaseCard {
 
     public AbstractCard makeCopy() {
         return new Heliotrope();
-    }
-
-    static {
-        cardInfo = new CardInfo("Heliotrope", 1, CardType.SKILL, CardTarget.SELF, CardRarity.UNCOMMON, Enums.CARD_COLOR);
-        ID = RyzaMod.makeID(cardInfo.baseId);
     }
 }

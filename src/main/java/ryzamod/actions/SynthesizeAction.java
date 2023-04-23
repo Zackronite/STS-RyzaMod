@@ -76,7 +76,6 @@ public class SynthesizeAction extends AbstractGameAction {
             ArrayList<MaterialCategory> recipe = isValidRecipe(ingredients);
 
             if (recipe != null) {
-                // TODO: add element value stuff
                 AbstractCard craft = recipes.get(recipe);
                 if (AbstractDungeon.player.hand.size() < 10) {
                     addToBot(new VFXAction(new ShowCardAndAddToHandEffect(craft.makeCopy(), (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F)));
