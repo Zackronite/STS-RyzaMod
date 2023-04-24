@@ -7,11 +7,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import ryzamod.RyzaMod;
-import ryzamod.actions.GatherMaterialAction;
 import ryzamod.character.RyzaCharacter;
-import ryzamod.powers.TacticsLevelPower;
 import ryzamod.util.CardInfo;
 
 import static ryzamod.RyzaMod.makeID;

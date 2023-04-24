@@ -1,25 +1,10 @@
 package ryzamod.relics;
 
-import basemod.abstracts.CustomRelic;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g3d.Material;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.relics.BurningBlood;
 import ryzamod.RyzaMod;
 import ryzamod.actions.GatherMaterialAction;
 import ryzamod.cards.materials.MaterialCategory;
-import ryzamod.cards.materials.gunpowder.MagmaPowder;
-import ryzamod.cards.materials.lumber.MossyDriftwood;
-import ryzamod.cards.materials.thread.FluffyWool;
 import ryzamod.character.RyzaCharacter;
-import ryzamod.util.TextureLoader;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
-
-import static ryzamod.RyzaMod.relicPath;
 
 public class GatheringBasket extends BaseRelic {
     // ID, images, text.

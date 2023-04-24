@@ -16,8 +16,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static ryzamod.RyzaMod.makeID;
-import static ryzamod.cards.materials.MaterialCategory.LUMBER;
-import static ryzamod.cards.materials.MaterialCategory.STONE;
 
 public class HunterGatherer extends BaseCard {
     private final static CardInfo cardInfo = new CardInfo(

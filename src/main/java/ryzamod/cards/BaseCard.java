@@ -1,11 +1,11 @@
 package ryzamod.cards;
 
 import basemod.abstracts.CustomCard;
-import ryzamod.RyzaMod;
-import ryzamod.util.CardInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import ryzamod.RyzaMod;
+import ryzamod.util.CardInfo;
 
 import static ryzamod.RyzaMod.makeID;
 import static ryzamod.util.TextureLoader.getCardTextureString;

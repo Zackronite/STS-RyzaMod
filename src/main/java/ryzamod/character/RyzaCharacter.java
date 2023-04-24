@@ -10,23 +10,22 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.blue.Defend_Blue;
 import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import ryzamod.cards.*;
-import ryzamod.cards.materials.ElementType;
 import ryzamod.relics.GatheringBasket;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import static ryzamod.RyzaMod.characterPath;
 import static ryzamod.RyzaMod.makeID;
@@ -39,17 +38,16 @@ public class RyzaCharacter extends CustomPlayer {
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
     public static CardGroup materials = new CardGroup(CardGroup.CardGroupType.CARD_POOL);
-    public static CardGroup crafts = new CardGroup(CardGroup.CardGroupType.CARD_POOL);
     public static int maxNumMaterials = 10;
     public static int tacticsLevel = 1;
     public static int chainLevel = 1;
-    public static HashMap<ElementType, Integer> elementLevels = new HashMap<>();
 
     //Strings
     private static final String ID = makeID("Ryza");
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     private static final String[] NAMES = characterStrings.NAMES;
     private static final String[] TEXT = characterStrings.TEXT;
+    private static final String[] MSG = CardCrawlGame.languagePack.getTutorialString("RyzaCharacter").TEXT;
 
     //Image file paths
     private static final String SHOULDER_1 = characterPath("shoulder.png"); //Shoulder 1 and 2 are used at rest sites.
@@ -202,5 +200,9 @@ public class RyzaCharacter extends CustomPlayer {
     public AbstractPlayer newInstance() {
         //Makes a new instance of your character class.
         return new RyzaCharacter();
+    }
+
+    public void createMaterialBagFullDialog() {
+        AbstractDungeon.effectList.add(new ThoughtBubble(this.dialogX, this.dialogY, 3.0f, MSG[0], true));
     }
 }

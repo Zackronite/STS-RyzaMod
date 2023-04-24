@@ -1,20 +1,13 @@
 package ryzamod.cards.common;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import ryzamod.actions.GatherMaterialAction;
 import ryzamod.cards.BaseCard;
 import ryzamod.cards.materials.MaterialCategory;
-import ryzamod.cards.materials.lumber.MossyDriftwood;
 import ryzamod.character.RyzaCharacter;
 import ryzamod.util.CardInfo;
 

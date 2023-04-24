@@ -1,12 +1,12 @@
 package ryzamod.powers;
 
-import ryzamod.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import ryzamod.util.TextureLoader;
 
 public abstract class BasePower extends AbstractPower {
     private static PowerStrings getPowerStrings(String ID)

@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.FireBurstParticleEffect;
-import com.megacrit.cardcrawl.vfx.combat.FireballEffect;
 
 public class ElementFireAction extends AbstractGameAction {
     private DamageInfo info;

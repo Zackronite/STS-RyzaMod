@@ -9,7 +9,7 @@
   },
   "${modID}:Gather": {
     "NAME": "Gather",
-    "DESCRIPTION": "Gather 3 ${modID}:Materials."
+    "DESCRIPTION": "Gather 5 ${modID}:Materials."
   },
   "${modID}:Synthesize": {
     "NAME": "Synthesize",

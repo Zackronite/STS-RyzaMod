@@ -1,21 +1,13 @@
 package ryzamod.cards.uncommon;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import ryzamod.actions.GatherMaterialAction;
 import ryzamod.cards.BaseCard;
-import ryzamod.cards.materials.MaterialCategory;
 import ryzamod.character.RyzaCharacter;
 import ryzamod.util.CardInfo;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import static ryzamod.RyzaMod.makeID;
 

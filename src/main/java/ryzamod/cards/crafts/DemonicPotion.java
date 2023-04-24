@@ -7,8 +7,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.SlowPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
-import ryzamod.cards.BaseCard;
-import ryzamod.character.RyzaCharacter;
 import ryzamod.util.CardInfo;
 
 import static ryzamod.RyzaMod.makeID;

@@ -2,11 +2,10 @@ package ryzamod.relics;
 
 import basemod.abstracts.CustomRelic;
 import basemod.helpers.RelicType;
-import ryzamod.util.TextureLoader;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import ryzamod.util.TextureLoader;
 
-import static ryzamod.RyzaMod.relicPath;
 import static ryzamod.RyzaMod.relicPath;
 
 public abstract class BaseRelic extends CustomRelic {
