@@ -47,7 +47,7 @@ public class RyzaCharacter extends CustomPlayer {
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     private static final String[] NAMES = characterStrings.NAMES;
     private static final String[] TEXT = characterStrings.TEXT;
-    private static final String[] MSG = CardCrawlGame.languagePack.getTutorialString("RyzaCharacter").TEXT;
+    private static final String[] MSG = CardCrawlGame.languagePack.getTutorialString(makeID("RyzaCharacter")).TEXT;
 
     //Image file paths
     private static final String SHOULDER_1 = characterPath("shoulder.png"); //Shoulder 1 and 2 are used at rest sites.
@@ -78,6 +78,7 @@ public class RyzaCharacter extends CustomPlayer {
 
         dialogX = (drawX + 0.0F * Settings.scale);
         dialogY = (drawY + 220.0F * Settings.scale);
+        materials.clear();
     }
 
     @Override

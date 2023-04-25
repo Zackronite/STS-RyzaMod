@@ -145,8 +145,8 @@ public class GatherMaterialAction extends AbstractGameAction {
         for (int i = 0; i < m.size(); i ++) {
             MaterialCard mat = m.get(i);
             // TODO: maybe add different sfx for different materials?
-            addToBot(new SFXAction("RELIC_DROP_MAGICAL"));
-            addToBot(new VFXAction(new ShowMaterialEffect(mat, positions[i][0], positions[i][1])));
+            addToTop(new SFXAction("RELIC_DROP_MAGICAL"));
+            addToTop(new VFXAction(new ShowMaterialEffect(mat, positions[i][0], positions[i][1])));
             RyzaCharacter.materials.addToTop(mat);
             checkPowers();
         }

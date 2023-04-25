@@ -8,5 +8,16 @@
     "TEXT": [
       "Choose materials to gather."
     ]
+  },
+  "${modID}:MaterialBagPanelItem": {
+    "TEXT": [
+      "My Material Bag is #rempty."
+    ]
+  },
+  "${modID}:MaterialBagScreen": {
+    "TEXT": [
+      "Materials you currently have will show up here.",
+      "Return"
+    ]
   }
 }

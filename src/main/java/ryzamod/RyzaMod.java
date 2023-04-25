@@ -2,6 +2,7 @@ package ryzamod;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.TopPanelItem;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -29,6 +30,8 @@ import ryzamod.character.RyzaCharacter;
 import ryzamod.powers.ChainPower;
 import ryzamod.powers.TacticsLevelPower;
 import ryzamod.relics.BaseRelic;
+import ryzamod.screens.MaterialBagScreen;
+import ryzamod.ui.MaterialBagTopPanelItem;
 import ryzamod.util.GeneralUtils;
 import ryzamod.util.KeywordInfo;
 import ryzamod.util.TextureLoader;
@@ -48,6 +51,7 @@ public class RyzaMod implements
         EditKeywordsSubscriber,
         PostInitializeSubscriber,
         OnStartBattleSubscriber,
+        PostBattleSubscriber,
         OnCardUseSubscriber {
     public static ModInfo info;
     public static String modID;
@@ -64,6 +68,8 @@ public class RyzaMod implements
     private static final String ENERGY_ORB_P = characterPath("cardback/energy_orb_p.png");
     private static final String SMALL_ORB = characterPath("cardback/small_orb.png");
     private static final Color RYZA_PINK = new Color(255f/255f, 0f/255f, 127f/255f, 1f);
+
+    public static TopPanelItem materialBagPanel;
 
     public static String makeID(String id) {
         return modID + ":" + id;
@@ -85,6 +91,10 @@ public class RyzaMod implements
     public void receivePostInitialize() {
         Texture badgeTexture = TextureLoader.getTexture(resourcePath("badge.png"));
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
+
+        materialBagPanel = new MaterialBagTopPanelItem();
+        BaseMod.addTopPanelItem(materialBagPanel);
+        BaseMod.addCustomScreen(new MaterialBagScreen());
     }
 
     //This is used to load the appropriate localization files based on language.
@@ -213,8 +223,6 @@ public class RyzaMod implements
 
     @Override
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
-        // reset materials
-        RyzaCharacter.materials.clear();
         // set tactics level/chain
         if (AbstractDungeon.player instanceof RyzaCharacter) {
             RyzaCharacter player = (RyzaCharacter) AbstractDungeon.player;
@@ -257,5 +265,11 @@ public class RyzaMod implements
                 AbstractDungeon.actionManager.addToBottom(new ChangeChainAction(1));
             }
         }
+    }
+
+    @Override
+    public void receivePostBattle(AbstractRoom abstractRoom) {
+        // reset materials
+        RyzaCharacter.materials.clear();
     }
 }

@@ -1,7 +1,15 @@
 {
-  "RyzaCharacter": {
+  "${modID}:RyzaCharacter": {
     "TEXT": [
       "My #rMaterial #rBag #ris #rFull!"
+    ]
+  },
+  "${modID}:MaterialBagTip": {
+    "LABEL": [
+      "Material Bag"
+    ],
+    "TEXT": [
+      "View the materials currently in your bag."
     ]
   }
 }
