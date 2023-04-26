@@ -31,7 +31,10 @@ import ryzamod.powers.ChainPower;
 import ryzamod.powers.TacticsLevelPower;
 import ryzamod.relics.BaseRelic;
 import ryzamod.screens.MaterialBagScreen;
+import ryzamod.screens.RecipesScreen;
+import ryzamod.screens.ViewCardPoolScreen;
 import ryzamod.ui.MaterialBagTopPanelItem;
+import ryzamod.ui.RecipesTopPanelItem;
 import ryzamod.util.GeneralUtils;
 import ryzamod.util.KeywordInfo;
 import ryzamod.util.TextureLoader;
@@ -70,6 +73,7 @@ public class RyzaMod implements
     private static final Color RYZA_PINK = new Color(255f/255f, 0f/255f, 127f/255f, 1f);
 
     public static TopPanelItem materialBagPanel;
+    public static TopPanelItem recipesPanel;
 
     public static String makeID(String id) {
         return modID + ":" + id;
@@ -93,8 +97,11 @@ public class RyzaMod implements
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
 
         materialBagPanel = new MaterialBagTopPanelItem();
+        recipesPanel = new RecipesTopPanelItem();
         BaseMod.addTopPanelItem(materialBagPanel);
+        BaseMod.addTopPanelItem(recipesPanel);
         BaseMod.addCustomScreen(new MaterialBagScreen());
+        BaseMod.addCustomScreen(new RecipesScreen());
     }
 
     //This is used to load the appropriate localization files based on language.

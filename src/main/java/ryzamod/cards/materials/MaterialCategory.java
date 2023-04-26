@@ -8,7 +8,7 @@ public enum MaterialCategory {
     GUNPOWDER("Gunpowder", 0),
     THREAD("Thread", 0),
     LUMBER("Lumber", 0),
-    FLOWERS("Flowers", 1),
+    FLOWERS("Flower", 1),
     POISONS("Poisons", 1),
     STONE("Stone", 1),
     MAGICAL("Magical", 2);

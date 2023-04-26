@@ -7,16 +7,16 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import ryzamod.RyzaMod;
 import ryzamod.character.RyzaCharacter;
 
-public class MaterialBagScreen extends ViewCardPoolScreen {
+public class RecipesScreen extends ViewCardPoolScreen {
     private static final UIStrings uiStrings;
 
     public static class Enums {
         @SpireEnum
-        public static AbstractDungeon.CurrentScreen MATERIAL_BAG;
+        public static AbstractDungeon.CurrentScreen RECIPES;
     }
 
-    public MaterialBagScreen() {
-        super(RyzaCharacter.materials, uiStrings, Enums.MATERIAL_BAG);
+    public RecipesScreen() {
+        super(RyzaCharacter.recipes, uiStrings, Enums.RECIPES);
     }
 
     public void open() {
@@ -24,6 +24,6 @@ public class MaterialBagScreen extends ViewCardPoolScreen {
     }
 
     static {
-        uiStrings = CardCrawlGame.languagePack.getUIString(RyzaMod.makeID("MaterialBagScreen"));
+        uiStrings = CardCrawlGame.languagePack.getUIString(RyzaMod.makeID("RecipesScreen"));
     }
 }

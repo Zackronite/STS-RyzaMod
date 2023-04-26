@@ -6,7 +6,12 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import ryzamod.cards.materials.MaterialCategory;
 import ryzamod.util.CardInfo;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import static ryzamod.RyzaMod.makeID;
 import static ryzamod.character.RyzaCharacter.Enums.CARD_COLOR;
@@ -35,6 +40,16 @@ public class Apocalypse extends CraftCard {
 
     public Apocalypse(CardInfo cardInfo) {
         super(cardInfo);
+    }
+
+    @Override
+    public HashMap<MaterialCategory, Integer> getRecipe() {
+        HashMap<MaterialCategory, Integer> recipe = new HashMap<>();
+        recipe.put(MaterialCategory.STONE, 1);
+        recipe.put(MaterialCategory.LUMBER, 1);
+        recipe.put(MaterialCategory.MAGICAL, 1);
+        recipe.put(MaterialCategory.GUNPOWDER, 1);
+        return recipe;
     }
 
     @Override

@@ -6,7 +6,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.IntangiblePower;
+import ryzamod.cards.materials.MaterialCategory;
 import ryzamod.util.CardInfo;
+
+import java.util.HashMap;
 
 import static ryzamod.RyzaMod.makeID;
 import static ryzamod.character.RyzaCharacter.Enums.CARD_COLOR;
@@ -35,6 +38,14 @@ public class FairyCloak extends CraftCard {
 
     public FairyCloak(CardInfo cardInfo) {
         super(cardInfo);
+    }
+
+    @Override
+    public HashMap<MaterialCategory, Integer> getRecipe() {
+        HashMap<MaterialCategory, Integer> recipe = new HashMap<>();
+        recipe.put(MaterialCategory.THREAD, 1);
+        recipe.put(MaterialCategory.MAGICAL, 2);
+        return recipe;
     }
 
     @Override

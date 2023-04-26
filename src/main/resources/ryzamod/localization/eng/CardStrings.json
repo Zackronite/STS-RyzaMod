@@ -54,11 +54,11 @@
   },
   "${modID}:LuckyClover": {
     "NAME": "Lucky Clover",
-    "DESCRIPTION": "${modID}:Flower. As an alchemy ingredient, it doesn't really matter how many leaves there are."
+    "DESCRIPTION": "${modID}:Flowers. As an alchemy ingredient, it doesn't really matter how many leaves there are."
   },
   "${modID}:TemptingSap": {
     "NAME": "Tempting Sap",
-    "DESCRIPTION": "${modID}:Poison. A dangerous sap that can melt absolutely anything."
+    "DESCRIPTION": "${modID}:Poisons. A dangerous sap that can melt absolutely anything."
   },
   "${modID}:Arknite": {
     "NAME": "Arknite",

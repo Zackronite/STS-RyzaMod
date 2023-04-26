@@ -15,6 +15,8 @@ import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import ryzamod.RyzaMod;
 import ryzamod.character.RyzaCharacter;
 import ryzamod.screens.MaterialBagScreen;
+import ryzamod.screens.RecipesScreen;
+import ryzamod.screens.ViewCardPoolScreen;
 
 import java.util.ArrayList;
 
@@ -32,8 +34,8 @@ public class MaterialBagTopPanelItem extends TopPanelItem {
     private static final float BAG_TIP_X;
     private static final float BAG_TIP_Y;
 
-    private final ArrayList<CurrentScreen> validScreens;
-    private final ArrayList<CurrentScreen> invalidPrevScreens;
+    protected final ArrayList<CurrentScreen> validScreens;
+    protected final ArrayList<CurrentScreen> invalidPrevScreens;
     private boolean justHovered;
 
     public MaterialBagTopPanelItem() {
@@ -48,6 +50,7 @@ public class MaterialBagTopPanelItem extends TopPanelItem {
         validScreens.add(CurrentScreen.CHOOSE_ONE);
         validScreens.add(CurrentScreen.HAND_SELECT);
         validScreens.add(CurrentScreen.SETTINGS);
+        validScreens.add(RecipesScreen.Enums.RECIPES);
         validScreens.add(MaterialBagScreen.Enums.MATERIAL_BAG);
 
         invalidPrevScreens = new ArrayList<>();

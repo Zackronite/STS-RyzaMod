@@ -79,5 +79,149 @@
       "creativity"
     ],
     "DESCRIPTION": "Creativity adds additional damage to Crafts."
+  },
+  {
+    "PROPER_NAME": "Handmade Staff Recipe",
+    "NAMES": [
+      "Handmade Staff Recipe",
+      "handmadestaff"
+    ],
+    "DESCRIPTION": "#b1 Lumber"
+  },
+  {
+    "PROPER_NAME": "Sparkling Reverie Recipe",
+    "NAMES": [
+      "Sparkling Reverie Recipe",
+      "sparklingreverie"
+    ],
+    "DESCRIPTION": "#b1 Lumber NL #b1 Stone NL #b1 Magical"
+  },
+  {
+    "PROPER_NAME": "Plajig Recipe",
+    "NAMES": [
+      "Plajig Recipe",
+      "plajig"
+    ],
+    "DESCRIPTION": "#b1 Gunpowder"
+  },
+  {
+    "PROPER_NAME": "Luft Recipe",
+    "NAMES": [
+      "Luft Recipe",
+      "luft"
+    ],
+    "DESCRIPTION": "#b1 Lumber NL #b1 Gunpowder"
+  },
+  {
+    "PROPER_NAME": "Grand Bomb Recipe",
+    "NAMES": [
+      "Grand Bomb Recipe",
+      "grandbomb"
+    ],
+    "DESCRIPTION": "#b1 Stone NL #b1 Gunpowder"
+  },
+  {
+    "PROPER_NAME": "Apocalypse Recipe",
+    "NAMES": [
+      "Apocalypse Recipe",
+      "apocalypse"
+    ],
+    "DESCRIPTION": "#b1 Magical NL #b1 Lumber NL #b1 Stone NL #b1 Gunpowder"
+  },
+  {
+    "PROPER_NAME": "N/A Recipe",
+    "NAMES": [
+      "N/A Recipe",
+      "na"
+    ],
+    "DESCRIPTION": "#b2 Gunpowder NL #b1 Stone"
+  },
+  {
+    "PROPER_NAME": "Traveler's Coat Recipe",
+    "NAMES": [
+      "Traveler's Coat Recipe",
+      "travelerscoat"
+    ],
+    "DESCRIPTION": "#b1 Thread"
+  },
+  {
+    "PROPER_NAME": "Fortress Armor Recipe",
+    "NAMES": [
+      "Fortress Armor Recipe",
+      "fortressarmor"
+    ],
+    "DESCRIPTION": "#b1 Thread NL #b1 Stone"
+  },
+  {
+    "PROPER_NAME": "Astronomical Clock Recipe",
+    "NAMES": [
+      "Astronomical Clock Recipe",
+      "astronomicalclock"
+    ],
+    "DESCRIPTION": "#b2 Stone"
+  },
+  {
+    "PROPER_NAME": "Fairy Cloak Recipe",
+    "NAMES": [
+      "Fairy Cloak Recipe",
+      "fairycloak"
+    ],
+    "DESCRIPTION": "#b2 Magical NL #b1 Thread"
+  },
+  {
+    "PROPER_NAME": "Witch's Potion Recipe",
+    "NAMES": [
+      "Witch's Potion Recipe",
+      "witchspotion"
+    ],
+    "DESCRIPTION": "#b1 Poisons"
+  },
+  {
+    "PROPER_NAME": "Demonic Potion Recipe",
+    "NAMES": [
+      "Demonic Potion Recipe",
+      "demonicpotion"
+    ],
+    "DESCRIPTION": "#b2 Poisons"
+  },
+  {
+    "PROPER_NAME": "Nectar Recipe",
+    "NAMES": [
+      "Nectar Recipe",
+      "nectar"
+    ],
+    "DESCRIPTION": "#b1 Flowers"
+  },
+  {
+    "PROPER_NAME": "Elixir Recipe",
+    "NAMES": [
+      "Elixir Recipe",
+      "elixir"
+    ],
+    "DESCRIPTION": "#b1 Magical NL #b1 Flowers"
+  },
+  {
+    "PROPER_NAME": "Mana Lantern Recipe",
+    "NAMES": [
+      "Mana Lantern Recipe",
+      "manalantern"
+    ],
+    "DESCRIPTION": "#b1 Magical NL #b1 Stone"
+  },
+  {
+    "PROPER_NAME": "Migratory Charm Recipe",
+    "NAMES": [
+      "Migratory Charm Recipe",
+      "migratorycharm"
+    ],
+    "DESCRIPTION": "#b1 Stone"
+  },
+  {
+    "PROPER_NAME": "Genesis Hammer Recipe",
+    "NAMES": [
+      "Genesis Hammer Recipe",
+      "genesishammer"
+    ],
+    "DESCRIPTION": "#b3 Stone"
   }
 ]

@@ -17,6 +17,7 @@ import ryzamod.cards.crafts.*;
 import ryzamod.cards.materials.ElementType;
 import ryzamod.cards.materials.MaterialCard;
 import ryzamod.cards.materials.MaterialCategory;
+import ryzamod.cards.materials.MaterialLibrary;
 import ryzamod.character.RyzaCharacter;
 import ryzamod.powers.ElementFirePower;
 import ryzamod.powers.ElementIcePower;
@@ -33,7 +34,6 @@ public class SynthesizeAction extends AbstractGameAction {
     private static final UIStrings uiStrings;
     private static final String[] TEXT;
     public static final int MAX_NUM_MATERIALS = 4;
-    public static final HashMap<ArrayList<MaterialCategory>, AbstractCard> recipes;
 
     public SynthesizeAction() {
         this.duration = Settings.ACTION_DUR_FAST;
@@ -62,10 +62,11 @@ public class SynthesizeAction extends AbstractGameAction {
         }
 
         if (AbstractDungeon.gridSelectScreen.selectedCards.size() > 0 && !this.didSynthesize) {
-            ArrayList<MaterialCategory> ingredients = new ArrayList<>();
+            HashMap<MaterialCategory, Integer> ingredients = new HashMap<>();
 
             for (AbstractCard card : AbstractDungeon.gridSelectScreen.selectedCards) {
-                ingredients.add(((MaterialCard)card).category);
+                MaterialCategory cat = ((MaterialCard)card).category;
+                ingredients.put(cat, ingredients.getOrDefault(cat, 0) + 1);
             }
             for (AbstractCard card : AbstractDungeon.gridSelectScreen.selectedCards) {
                 RyzaCharacter.materials.removeCard(card);
@@ -73,14 +74,13 @@ public class SynthesizeAction extends AbstractGameAction {
                 addToBot(new SFXAction("ORB_SLOT_GAIN"));
             }
 
-            ArrayList<MaterialCategory> recipe = isValidRecipe(ingredients);
+            CraftCard craft = getCraftFromRecipe(ingredients);
 
-            if (recipe != null) {
-                AbstractCard craft = recipes.get(recipe);
+            if (craft != null) {
                 if (AbstractDungeon.player.hand.size() < 10) {
-                    addToBot(new VFXAction(new ShowCardAndAddToHandEffect(craft.makeCopy(), (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F)));
+                    addToBot(new VFXAction(new ShowCardAndAddToHandEffect(craft, (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F)));
                 } else {
-                    addToBot(new VFXAction(new ShowCardAndAddToDiscardEffect(craft.makeCopy(), (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F)));
+                    addToBot(new VFXAction(new ShowCardAndAddToDiscardEffect(craft, (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F)));
                 }
 
                 for (AbstractCard card : AbstractDungeon.gridSelectScreen.selectedCards) {
@@ -116,10 +116,12 @@ public class SynthesizeAction extends AbstractGameAction {
         this.tickDuration();
     }
 
-    private ArrayList<MaterialCategory> isValidRecipe(ArrayList<MaterialCategory> recipe) {
-        for (ArrayList<MaterialCategory> validRecipe : recipes.keySet()) {
-            if (validRecipe.size() == recipe.size() && validRecipe.containsAll(recipe)) {
-                return validRecipe;
+    // returns the craft or null
+    private CraftCard getCraftFromRecipe(HashMap<MaterialCategory, Integer> recipe) {
+        for (AbstractCard c : MaterialLibrary.getAllCrafts()) {
+            HashMap<MaterialCategory, Integer> craftRecipe = ((CraftCard)c).getRecipe();
+            if (craftRecipe.equals(recipe)) {
+                return (CraftCard) c;
             }
         }
 
@@ -129,30 +131,5 @@ public class SynthesizeAction extends AbstractGameAction {
     static {
         uiStrings = CardCrawlGame.languagePack.getUIString(RyzaMod.makeID("SynthesizeAction"));
         TEXT = uiStrings.TEXT;
-
-        recipes = new HashMap<>();
-        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.GUNPOWDER)), new Plajig());
-        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.GUNPOWDER, MaterialCategory.LUMBER)), new Luft());
-        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.GUNPOWDER, MaterialCategory.STONE)), new GrandBomb());
-        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.STONE,
-                MaterialCategory.GUNPOWDER, MaterialCategory.GUNPOWDER)), new NA());
-        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.MAGICAL,
-                MaterialCategory.LUMBER, MaterialCategory.STONE, MaterialCategory.GUNPOWDER)), new Apocalypse());
-        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.STONE,
-                MaterialCategory.STONE, MaterialCategory.STONE)), new GenesisHammer());
-        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.STONE, MaterialCategory.STONE)), new AstronomicalClock());
-        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.STONE)), new MigratoryCharm());
-        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.FLOWERS)), new Nectar());
-        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.FLOWERS, MaterialCategory.MAGICAL)), new Elixir());
-        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.POISONS)), new WitchsPotion());
-        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.POISONS, MaterialCategory.POISONS)), new DemonicPotion());
-        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.LUMBER)), new HandmadeStaff());
-        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.LUMBER,
-                MaterialCategory.STONE, MaterialCategory.MAGICAL)), new SparklingReverie());
-        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.THREAD)), new TravelersCoat());
-        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.THREAD, MaterialCategory.STONE)), new FortressArmor());
-        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.THREAD,
-                MaterialCategory.MAGICAL, MaterialCategory.MAGICAL)), new FairyCloak());
-        recipes.put(new ArrayList<>(Arrays.asList(MaterialCategory.MAGICAL, MaterialCategory.STONE)), new ManaLantern());
     }
 }

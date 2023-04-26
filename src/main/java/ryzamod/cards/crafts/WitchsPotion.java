@@ -7,7 +7,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import ryzamod.cards.materials.MaterialCategory;
 import ryzamod.util.CardInfo;
+
+import java.util.HashMap;
 
 import static ryzamod.RyzaMod.makeID;
 import static ryzamod.character.RyzaCharacter.Enums.CARD_COLOR;
@@ -36,6 +39,13 @@ public class WitchsPotion extends CraftCard {
 
     public WitchsPotion(CardInfo cardInfo) {
         super(cardInfo);
+    }
+
+    @Override
+    public HashMap<MaterialCategory, Integer> getRecipe() {
+        HashMap<MaterialCategory, Integer> recipe = new HashMap<>();
+        recipe.put(MaterialCategory.POISONS, 1);
+        return recipe;
     }
 
     @Override

@@ -2,6 +2,7 @@ package ryzamod.cards.materials;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.random.Random;
+import ryzamod.cards.crafts.*;
 import ryzamod.cards.materials.flowers.LuckyClover;
 import ryzamod.cards.materials.gunpowder.MagmaPowder;
 import ryzamod.cards.materials.lumber.MossyDriftwood;
@@ -11,14 +12,17 @@ import ryzamod.cards.materials.stone.Arknite;
 import ryzamod.cards.materials.thread.FluffyWool;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class MaterialLibrary {
     public static int totalMaterialCount;
+    public static int totalCraftCount;
     public static int commonMaterials;
     public static int uncommonMaterials;
     public static int rareMaterials;
     public static HashMap<String, MaterialCard> materials = new HashMap<>();
+    public static HashMap<String, CraftCard> crafts = new HashMap<>();
 
     public MaterialLibrary() {}
 
@@ -27,23 +31,29 @@ public class MaterialLibrary {
         addCommonMaterials();
         addUncommonMaterials();
         addRareMaterials();
+        addCrafts();
     }
 
-    private static void add(MaterialCard mat) {
-        switch (mat.rarity) {
-            case COMMON:
-                commonMaterials++;
-                break;
-            case UNCOMMON:
-                uncommonMaterials++;
-                break;
-            case RARE:
-                rareMaterials++;
-                break;
-        }
+    private static void add(AbstractCard c) {
+        if (c instanceof MaterialCard) {
+            switch (c.rarity) {
+                case COMMON:
+                    commonMaterials++;
+                    break;
+                case UNCOMMON:
+                    uncommonMaterials++;
+                    break;
+                case RARE:
+                    rareMaterials++;
+                    break;
+            }
 
-        materials.put(mat.cardID, mat);
-        totalMaterialCount++;
+            materials.put(c.cardID, (MaterialCard) c);
+            totalMaterialCount++;
+        } else if (c instanceof CraftCard) {
+            crafts.put(c.cardID, (CraftCard) c);
+            totalCraftCount++;
+        }
     }
 
     // gunpowder, thread, lumber
@@ -63,6 +73,43 @@ public class MaterialLibrary {
     // magical
     private static void addRareMaterials() {
         add(new HeavenlyString());
+    }
+
+    private static void addCrafts() {
+        // common
+        add(new HandmadeStaff());
+        add(new Plajig());
+        add(new Luft());
+        add(new TravelersCoat());
+        add(new WitchsPotion());
+        add(new Nectar());
+        add(new MigratoryCharm());
+
+        // uncommon
+        add(new GrandBomb());
+        add(new FortressArmor());
+        add(new AstronomicalClock());
+        add(new DemonicPotion());
+        add(new Elixir());
+        add(new ManaLantern());
+
+        // rare
+        add(new SparklingReverie());
+        add(new NA());
+        add(new FairyCloak());
+        add(new GenesisHammer());
+        add(new Apocalypse());
+    }
+
+    public static ArrayList<AbstractCard> getAllCrafts() {
+        ArrayList<AbstractCard> craftList = new ArrayList<>();
+        for (CraftCard craft : crafts.values()) {
+            craftList.add(craft.makeCopy());
+        }
+
+        Collections.sort(craftList);
+
+        return craftList;
     }
 
     public static MaterialCard getMaterial(String key) {

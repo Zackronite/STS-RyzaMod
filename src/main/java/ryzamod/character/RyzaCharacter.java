@@ -23,6 +23,7 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import ryzamod.cards.*;
+import ryzamod.cards.materials.MaterialLibrary;
 import ryzamod.relics.GatheringBasket;
 
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ public class RyzaCharacter extends CustomPlayer {
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
     public static CardGroup materials = new CardGroup(CardGroup.CardGroupType.CARD_POOL);
+    public static CardGroup recipes = new CardGroup(CardGroup.CardGroupType.CARD_POOL);
     public static int maxNumMaterials = 10;
     public static int tacticsLevel = 1;
     public static int chainLevel = 1;
@@ -79,6 +81,10 @@ public class RyzaCharacter extends CustomPlayer {
         dialogX = (drawX + 0.0F * Settings.scale);
         dialogY = (drawY + 220.0F * Settings.scale);
         materials.clear();
+        recipes.clear();
+        for (AbstractCard c : MaterialLibrary.getAllCrafts()) {
+            recipes.addToBottom(c);
+        }
     }
 
     @Override

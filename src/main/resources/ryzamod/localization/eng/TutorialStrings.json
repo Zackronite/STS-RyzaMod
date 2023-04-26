@@ -11,5 +11,13 @@
     "TEXT": [
       "View the materials currently in your bag."
     ]
+  },
+  "${modID}:RecipesTip": {
+    "LABEL": [
+      "Recipe Book"
+    ],
+    "TEXT": [
+      "View all available crafts and their recipes."
+    ]
   }
 }

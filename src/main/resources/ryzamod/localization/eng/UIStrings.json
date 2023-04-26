@@ -19,5 +19,11 @@
       "Materials you currently have will show up here.",
       "Return"
     ]
+  },
+  "${modID}:RecipesScreen": {
+    "TEXT": [
+      "All the available crafts. Hover over one to view its recipe.",
+      "Return"
+    ]
   }
 }
