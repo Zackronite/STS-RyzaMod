@@ -75,6 +75,7 @@ public abstract class ViewCardPoolScreen extends CustomScreen implements ScrollB
     public void open() {
         CardCrawlGame.sound.play("DECK_OPEN");
         AbstractDungeon.overlayMenu.showBlackScreen();
+        AbstractDungeon.overlayMenu.hideCombatPanels();
         this.currentDiffY = this.scrollLowerBound;
         this.grabStartY = this.scrollLowerBound;
         this.grabbedScreen = false;
@@ -114,6 +115,7 @@ public abstract class ViewCardPoolScreen extends CustomScreen implements ScrollB
         }
         AbstractDungeon.isScreenUp = false;
         AbstractDungeon.overlayMenu.cancelButton.hide();
+        AbstractDungeon.overlayMenu.showCombatPanels();
         CardCrawlGame.sound.play("DECK_CLOSE");
     }
 

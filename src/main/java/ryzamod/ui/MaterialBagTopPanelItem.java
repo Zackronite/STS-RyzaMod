@@ -46,7 +46,7 @@ public class MaterialBagTopPanelItem extends TopPanelItem {
         validScreens.add(CurrentScreen.HAND_SELECT);
         validScreens.add(CurrentScreen.MAP);
         validScreens.add(CurrentScreen.MASTER_DECK_VIEW);
-        validScreens.add(CurrentScreen.GRID);
+        // validScreens.add(CurrentScreen.GRID);
         validScreens.add(CurrentScreen.CHOOSE_ONE);
         validScreens.add(CurrentScreen.HAND_SELECT);
         validScreens.add(CurrentScreen.SETTINGS);

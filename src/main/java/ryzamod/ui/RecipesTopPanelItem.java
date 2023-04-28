@@ -47,7 +47,7 @@ public class RecipesTopPanelItem extends TopPanelItem {
 
     @Override
     public boolean isClickable() {
-        return (AbstractDungeon.player instanceof RyzaCharacter) && AbstractDungeon.isPlayerInDungeon() && (!invalidPrevScreens.contains(AbstractDungeon.previousScreen));
+        return (AbstractDungeon.player instanceof RyzaCharacter) && AbstractDungeon.screen != CurrentScreen.GRID && AbstractDungeon.isPlayerInDungeon() && (!invalidPrevScreens.contains(AbstractDungeon.previousScreen));
     }
 
     @Override

@@ -28,6 +28,7 @@ public class MaterialLibrary {
 
     private static void initialize() {
         materials.clear();
+        crafts.clear();
         addCommonMaterials();
         addUncommonMaterials();
         addRareMaterials();
@@ -110,6 +111,17 @@ public class MaterialLibrary {
         Collections.sort(craftList);
 
         return craftList;
+    }
+
+    public static ArrayList<AbstractCard> getAllMaterials() {
+        ArrayList<AbstractCard> matList = new ArrayList<>();
+        for (MaterialCard mat : materials.values()) {
+            matList.add(mat.makeCopy());
+        }
+
+        Collections.sort(matList);
+
+        return matList;
     }
 
     public static MaterialCard getMaterial(String key) {

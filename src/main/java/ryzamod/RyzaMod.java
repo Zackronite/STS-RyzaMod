@@ -32,7 +32,6 @@ import ryzamod.powers.TacticsLevelPower;
 import ryzamod.relics.BaseRelic;
 import ryzamod.screens.MaterialBagScreen;
 import ryzamod.screens.RecipesScreen;
-import ryzamod.screens.ViewCardPoolScreen;
 import ryzamod.ui.MaterialBagTopPanelItem;
 import ryzamod.ui.RecipesTopPanelItem;
 import ryzamod.util.GeneralUtils;
