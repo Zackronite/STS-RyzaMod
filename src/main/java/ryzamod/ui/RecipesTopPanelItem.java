@@ -80,7 +80,7 @@ public class RecipesTopPanelItem extends TopPanelItem {
 
     @Override
     protected void onUnhover() {
-        this.justHovered = false;
+        this.justHovered = true;
     }
 
     @Override
