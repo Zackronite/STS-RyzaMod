@@ -209,5 +209,45 @@
     "NAME": "Scrounge",
     "DESCRIPTION": "Gather 1 ${modID}:Gunpowder, ${modID}:Thread, or ${modID}:Lumber. Exhaust.",
     "UPGRADE_DESCRIPTION": "Gather 1 ${modID}:Gunpowder, ${modID}:Thread, or ${modID}:Lumber."
+  },
+  "${modID}:Ambush": {
+    "NAME": "Ambush",
+    "DESCRIPTION": "Innate. Deal !D! damage. Draw 1 card. Exhaust."
+  },
+  "${modID}:KeenEye": {
+    "NAME": "Keen Eye",
+    "DESCRIPTION": "Gather 1 ${modID}:Gunpowder, ${modID}:Thread, or ${modID}:Lumber. Draw 1 card."
+  },
+  "${modID}:Malignance": {
+    "NAME": "Malignance",
+    "DESCRIPTION": "Gather !M! ${modID}:Poison. Exhaust."
+  },
+  "${modID}:SwiftAction": {
+    "NAME": "Swift Action",
+    "DESCRIPTION": "Deal !D! damage 2 times. ${modID}:Synthesize."
+  },
+  "${modID}:Tinker": {
+    "NAME": "Tinker",
+    "DESCRIPTION": "${modID}:Synthesize."
+  },
+  "${modID}:CascadingStar": {
+    "NAME": "Cascading Star",
+    "DESCRIPTION": "Deal !M! times ${modID}:Fire_Element, ${modID}:Ice_Element, ${modID}:Wind_Element, and ${modID}:Lightning_Element.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals ",
+      " damage.)"
+    ]
+  },
+  "${modID}:StirringDiscovery": {
+    "NAME": "Stirring Discovery",
+    "DESCRIPTION": "Gather 1 ${modID}:Magical."
+  },
+  "${modID}:FlowerPower": {
+    "NAME": "Flower Power",
+    "DESCRIPTION": "Gather 1 ${modID}:Flower. Gain !M! Strength."
+  },
+  "${modID}:MakeSpace": {
+    "NAME": "Make Space",
+    "DESCRIPTION": "Gain !M! Material Slots."
   }
 }
