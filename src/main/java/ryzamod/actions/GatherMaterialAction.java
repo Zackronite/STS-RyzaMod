@@ -20,6 +20,7 @@ import ryzamod.character.RyzaCharacter;
 import ryzamod.vfx.ShowMaterialEffect;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class GatherMaterialAction extends AbstractGameAction {
     private boolean isRandom;
     private boolean didGather;
     private ArrayList<MaterialCategory> validCategories;
+    private MaterialCard specificMaterialToGather = null;
 
     private static final UIStrings uiStrings;
     private static final String[] TEXT;
@@ -44,11 +46,23 @@ public class GatherMaterialAction extends AbstractGameAction {
         this(amount, isRandom, MaterialCategory.getCategoriesOfRarity(new int[]{0, 1, 2}));
     }
 
+    public GatherMaterialAction(int amount, MaterialCard material) {
+        this(amount, false, new ArrayList<>());
+        this.specificMaterialToGather = material;
+    }
+
     @Override
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FAST) {
             if (RyzaCharacter.materials.size() == RyzaCharacter.maxNumMaterials) {
                 materialBagIsFullDialog();
+                this.isDone = true;
+                return;
+            }
+
+            if (specificMaterialToGather != null) {
+                addMaterial(Arrays.asList(this.specificMaterialToGather));
+                this.didGather = true;
                 this.isDone = true;
                 return;
             }

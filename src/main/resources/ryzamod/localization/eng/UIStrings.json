@@ -16,7 +16,7 @@
   },
   "${modID}:MaterialBagScreen": {
     "TEXT": [
-      "Materials you currently have will show up here.",
+      "Materials you currently have will show up here. Maximum capacity: ",
       "Return"
     ]
   },

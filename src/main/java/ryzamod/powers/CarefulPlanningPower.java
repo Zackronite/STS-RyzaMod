@@ -5,13 +5,14 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import ryzamod.RyzaMod;
 
-public class MindfulnessPower extends BasePower {
-    public static final String POWER_ID = RyzaMod.makeID("MindfulnessPower");
+public class CarefulPlanningPower extends BasePower {
+    public static final String POWER_ID = RyzaMod.makeID("CarefulPlanningPower");
     private static final PowerStrings powerStrings;
 
-    public MindfulnessPower(AbstractCreature owner, int amount) {
+    public CarefulPlanningPower(AbstractCreature owner, int amount) {
         super(POWER_ID, PowerType.BUFF, false, owner, amount);
         this.description = powerStrings.DESCRIPTIONS[0];
+        this.canGoNegative = false;
     }
 
     static {

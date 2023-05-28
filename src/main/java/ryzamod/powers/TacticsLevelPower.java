@@ -27,7 +27,7 @@ public class TacticsLevelPower extends BasePower {
     public void atEndOfRound() {
         if (this.owner.isPlayer) {
             AbstractPlayer player = (AbstractPlayer) owner;
-            if (!player.hasPower(RyzaMod.makeID("Mindfulness"))) {
+            if (!player.hasPower(RyzaMod.makeID("MindfulnessPower"))) {
                 if (this.amount > 1) {
                     addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, this.amount - 1));
                 }

@@ -249,5 +249,33 @@
   "${modID}:MakeSpace": {
     "NAME": "Make Space",
     "DESCRIPTION": "Gain !M! Material Slots."
+  },
+  "${modID}:Scatterbrained": {
+    "NAME": "Scatterbrained",
+    "DESCRIPTION": "Lose 1 ${modID}:Creativity and draw 2 cards at the start of every turn."
+  },
+  "${modID}:SparkOfCreation": {
+    "NAME": "Spark of Creation",
+    "DESCRIPTION": "Gain 3 ${modID}:Creativity. Lose 1 Material Slot."
+  },
+  "${modID}:LapseInJudgment": {
+    "NAME": "Lapse in Judgment",
+    "DESCRIPTION": "Deal !D! damage. Lose 2 ${modID}:Creativity."
+  },
+  "${modID}:AlchemistForm": {
+    "NAME": "Alchemist Form",
+    "DESCRIPTION": "Gain !M! ${modID}:Creativity at the start of every turn."
+  },
+  "${modID}:AlternateApproach": {
+    "NAME": "Alternate Approach",
+    "DESCRIPTION": "Gain 1 ${modID}:Creativity for each ${modID}:Material in your bag. Discard all ${modID}:Materials.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gain ",
+      " creativity.)"
+    ]
+  },
+  "${modID}:CarefulPlanning": {
+    "NAME": "Careful Planning",
+    "DESCRIPTION": "The next ${modID}:Synthesis will return a random ${modID}:Material."
   }
 }
