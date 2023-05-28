@@ -68,7 +68,7 @@ public class RyzaCharacter extends CustomPlayer {
     public RyzaCharacter() {
         super(NAMES[0], Enums.RYZA_CHARACTER,
                 new CustomEnergyOrb(null, null, null), //Energy Orb
-                new SpriterAnimation(characterPath("animation/default.scml"))); //Animation
+                new SpriterAnimation(characterPath("animation/ryza.scml"))); //Animation
 
         initializeClass(null,
                 SHOULDER_2,
