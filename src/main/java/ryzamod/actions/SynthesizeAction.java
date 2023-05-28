@@ -1,8 +1,10 @@
 package ryzamod.actions;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -27,6 +29,7 @@ import ryzamod.powers.ElementWindPower;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Random;
 
 public class SynthesizeAction extends AbstractGameAction {
     private boolean didSynthesize;
@@ -63,10 +66,12 @@ public class SynthesizeAction extends AbstractGameAction {
 
         if (AbstractDungeon.gridSelectScreen.selectedCards.size() > 0 && !this.didSynthesize) {
             HashMap<MaterialCategory, Integer> ingredients = new HashMap<>();
+            ArrayList<MaterialCard> materialsUsed = new ArrayList<>();
 
             for (AbstractCard card : AbstractDungeon.gridSelectScreen.selectedCards) {
                 MaterialCategory cat = ((MaterialCard)card).category;
                 ingredients.put(cat, ingredients.getOrDefault(cat, 0) + 1);
+                materialsUsed.add((MaterialCard)card);
             }
             for (AbstractCard card : AbstractDungeon.gridSelectScreen.selectedCards) {
                 RyzaCharacter.materials.removeCard(card);
@@ -77,7 +82,7 @@ public class SynthesizeAction extends AbstractGameAction {
             CraftCard craft = getCraftFromRecipe(ingredients);
 
             if (craft != null) {
-                if (AbstractDungeon.player.hand.size() < 10) {
+                if (AbstractDungeon.player.hand.size() < BaseMod.MAX_HAND_SIZE) {
                     addToBot(new VFXAction(new ShowCardAndAddToHandEffect(craft, (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F)));
                 } else {
                     addToBot(new VFXAction(new ShowCardAndAddToDiscardEffect(craft, (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F)));
@@ -104,6 +109,15 @@ public class SynthesizeAction extends AbstractGameAction {
                         }
                     }
                 }
+
+                if (AbstractDungeon.player instanceof RyzaCharacter) {
+                    if (AbstractDungeon.player.hasPower(RyzaMod.makeID("CarefulPlanningPower"))) {
+                        MaterialCard materialToRefund = materialsUsed.get(new Random().nextInt(materialsUsed.size()));
+                        addToBot(new GatherMaterialAction(1, (MaterialCard) materialToRefund.makeCopy()));
+                        addToBot(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, RyzaMod.makeID("CarefulPlanningPower"), 1));
+                    }
+                }
+
                 // addToBot(new MakeTempCardInHandAction(craft.makeCopy()));
                 this.didSynthesize = true;
             }

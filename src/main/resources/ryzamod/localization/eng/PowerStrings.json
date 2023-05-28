@@ -11,7 +11,7 @@
       "Your current #yTactics #yLevel."
     ]
   },
-  "${modID}:Mindfulness": {
+  "${modID}:MindfulnessPower": {
     "NAME": "Mindfulness",
     "DESCRIPTIONS": [
       "Your #yTactics #yLevel will no longer reset every turn."
@@ -89,6 +89,25 @@
       "Increases #yCraft damage by #b",
       "Decreases #yCraft damage by #b",
       "."
+    ]
+  },
+  "${modID}:ScatterbrainedPower": {
+    "NAME": "Scatterbrained",
+    "DESCRIPTIONS": [
+      "Lose #b1 #yCreativity and draw #b2 cards at the start of your turn."
+    ]
+  },
+  "${modID}:AlchemistFormPower": {
+    "NAME": "Alchemist Form",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " #yCreativity at the start of your turn."
+    ]
+  },
+  "${modID}:CarefulPlanningPower": {
+    "NAME": "Careful Planning",
+    "DESCRIPTIONS": [
+      "Your next #ySynthesis will return a random #yMaterial."
     ]
   }
 }

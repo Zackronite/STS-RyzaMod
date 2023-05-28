@@ -16,7 +16,7 @@ public class MaterialBagScreen extends ViewCardPoolScreen {
     }
 
     public MaterialBagScreen() {
-        super(RyzaCharacter.materials, uiStrings, Enums.MATERIAL_BAG);
+        super(RyzaCharacter.materials, uiStrings, Enums.MATERIAL_BAG, true);
     }
 
     public void open() {

@@ -22,10 +22,11 @@ import java.util.ArrayList;
 public abstract class ViewCardPoolScreen extends CustomScreen implements ScrollBarListener {
     private final UIStrings uiStrings;
     public final String[] TEXT;
-    private final String HEADER_INFO;
+    private String HEADER_INFO;
     public boolean isHovered = false;
     private static final int CARDS_PER_LINE = 5;
     private boolean grabbedScreen = false;
+    private boolean showMaterialCapacity = false;
     private static float drawStartX;
     private static float drawStartY;
     private static float padX;
@@ -67,6 +68,11 @@ public abstract class ViewCardPoolScreen extends CustomScreen implements ScrollB
         this.scrollBar.changeHeight((float)Settings.HEIGHT - 384f * Settings.scale);
     }
 
+    public ViewCardPoolScreen(CardGroup group, UIStrings uiStrings, AbstractDungeon.CurrentScreen customScreen, boolean showMaterialCapacity) {
+        this(group, uiStrings, customScreen);
+        this.showMaterialCapacity = showMaterialCapacity;
+    }
+
     @Override
     public AbstractDungeon.CurrentScreen curScreen() {
         return this.customScreen;
@@ -79,6 +85,8 @@ public abstract class ViewCardPoolScreen extends CustomScreen implements ScrollB
         this.currentDiffY = this.scrollLowerBound;
         this.grabStartY = this.scrollLowerBound;
         this.grabbedScreen = false;
+        if (this.showMaterialCapacity)
+            this.HEADER_INFO = this.TEXT[0] + RyzaCharacter.maxNumMaterials;
         AbstractDungeon.isScreenUp = true;
         AbstractDungeon.screen = curScreen();
 
