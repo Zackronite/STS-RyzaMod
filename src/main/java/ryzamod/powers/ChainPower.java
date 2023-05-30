@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import ryzamod.RyzaMod;
+import ryzamod.character.RyzaCharacter;
 
 public class ChainPower extends BasePower {
     public static final String POWER_ID = RyzaMod.makeID("Chain");
@@ -14,11 +15,11 @@ public class ChainPower extends BasePower {
     public ChainPower(AbstractCreature owner, int amount) {
         super(POWER_ID, PowerType.BUFF, false, owner, amount);
         this.description = powerStrings.DESCRIPTIONS[0];
-        if (this.amount >= 5) {
-            this.amount = 5;
+        if (this.amount >= RyzaCharacter.MAX_CHAIN_LEVEL) {
+            this.amount = RyzaCharacter.MAX_CHAIN_LEVEL;
         }
-        if (this.amount <= 1) {
-            this.amount = 1;
+        if (this.amount <= RyzaCharacter.MIN_CHAIN_LEVEL) {
+            this.amount = RyzaCharacter.MIN_CHAIN_LEVEL;
         }
         this.canGoNegative = false;
     }
@@ -26,22 +27,22 @@ public class ChainPower extends BasePower {
     public void stackPower(int stackAmount) {
         this.fontScale = 8f;
         this.amount += stackAmount;
-        if (this.amount >= 5) {
-            this.amount = 5;
+        if (this.amount >= RyzaCharacter.MAX_CHAIN_LEVEL) {
+            this.amount = RyzaCharacter.MAX_CHAIN_LEVEL;
         }
-        if (this.amount <= 1) {
-            this.amount = 1;
+        if (this.amount <= RyzaCharacter.MIN_CHAIN_LEVEL) {
+            this.amount = RyzaCharacter.MIN_CHAIN_LEVEL;
         }
     }
 
     public void reducePower(int reduceAmount) {
         this.fontScale = 8f;
         this.amount -= reduceAmount;
-        if (this.amount >= 5) {
-            this.amount = 5;
+        if (this.amount >= RyzaCharacter.MAX_CHAIN_LEVEL) {
+            this.amount = RyzaCharacter.MAX_CHAIN_LEVEL;
         }
-        if (this.amount <= 1) {
-            this.amount = 1;
+        if (this.amount <= RyzaCharacter.MIN_CHAIN_LEVEL) {
+            this.amount = RyzaCharacter.MIN_CHAIN_LEVEL;
         }
     }
 
@@ -49,8 +50,8 @@ public class ChainPower extends BasePower {
     public void atEndOfRound() {
         if (this.owner.isPlayer) {
             AbstractPlayer player = (AbstractPlayer) owner;
-            if (this.amount > 1) {
-                addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, this.amount - 1));
+            if (this.amount > RyzaCharacter.MIN_CHAIN_LEVEL) {
+                addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, this.amount - RyzaCharacter.MIN_CHAIN_LEVEL));
             }
         }
     }

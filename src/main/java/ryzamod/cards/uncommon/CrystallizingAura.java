@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import ryzamod.actions.GatherMaterialAction;
 import ryzamod.cards.BaseCard;
 import ryzamod.cards.materials.MaterialCategory;
@@ -16,12 +17,12 @@ import java.util.Arrays;
 
 import static ryzamod.RyzaMod.makeID;
 
-public class FlowerPower extends BaseCard {
+public class CrystallizingAura extends BaseCard {
     private final static CardInfo cardInfo = new CardInfo(
-            "FlowerPower",
+            "CrystallizingAura",
             1,
             CardType.SKILL,
-            CardTarget.SELF,
+            CardTarget.ENEMY,
             CardRarity.UNCOMMON,
             RyzaCharacter.Enums.CARD_COLOR
     );
@@ -29,26 +30,26 @@ public class FlowerPower extends BaseCard {
 
     public static final String ID = makeID(cardInfo.baseId);
 
-    private static final int MAGIC = 1;
-    private static final int UPG_MAGIC = 1;
+    private static final int WEAK_AMT = 99;
 
-    public FlowerPower() {
+    public CrystallizingAura() {
         super(cardInfo);
-        setMagic(MAGIC, UPG_MAGIC);
+        setMagic(WEAK_AMT);
+        setCostUpgrade(0);
+        this.exhaust = true;
     }
 
-    public FlowerPower(CardInfo cardInfo) {
+    public CrystallizingAura(CardInfo cardInfo) {
         super(cardInfo);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GatherMaterialAction(1, false, new ArrayList<>(Arrays.asList(MaterialCategory.FLOWERS))));
-        addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
+        addToBot(new ApplyPowerAction(m, p, new WeakPower(p, this.magicNumber, false)));
     }
 
     @Override
     public AbstractCard makeCopy() { //Optional
-        return new FlowerPower();
+        return new CrystallizingAura();
     }
 }

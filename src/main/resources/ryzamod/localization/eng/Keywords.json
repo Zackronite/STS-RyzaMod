@@ -23,14 +23,14 @@
       "tactics_level",
       "tactics"
     ],
-    "DESCRIPTION": "Tactics Level will increase for every skill played up to 5 and resets every turn by default."
+    "DESCRIPTION": "Tactics Level will increase for every skill played and resets every turn by default."
   },
   {
     "PROPER_NAME": "Chain",
     "NAMES": [
       "chain"
     ],
-    "DESCRIPTION": "Chain will increase for every attack played up to 5 and resets every turn."
+    "DESCRIPTION": "Chain will increase for every attack played and resets every turn."
   },
   {
     "PROPER_NAME": "Material",

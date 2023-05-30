@@ -1,54 +1,50 @@
-package ryzamod.cards.uncommon;
+package ryzamod.cards.rare;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import ryzamod.actions.GatherMaterialAction;
+import ryzamod.actions.SynthesizeAction;
 import ryzamod.cards.BaseCard;
 import ryzamod.cards.materials.MaterialCategory;
 import ryzamod.character.RyzaCharacter;
 import ryzamod.util.CardInfo;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import static ryzamod.RyzaMod.makeID;
 
-public class FlowerPower extends BaseCard {
+public class Coalescence extends BaseCard {
     private final static CardInfo cardInfo = new CardInfo(
-            "FlowerPower",
-            1,
+            "Coalescence",
+            2,
             CardType.SKILL,
             CardTarget.SELF,
-            CardRarity.UNCOMMON,
+            CardRarity.RARE,
             RyzaCharacter.Enums.CARD_COLOR
     );
 
 
     public static final String ID = makeID(cardInfo.baseId);
 
-    private static final int MAGIC = 1;
-    private static final int UPG_MAGIC = 1;
+    private static final int GATHER_AMT = 2;
+    private static final int UPG_GATHER_AMT = 1;
 
-    public FlowerPower() {
+    public Coalescence() {
         super(cardInfo);
-        setMagic(MAGIC, UPG_MAGIC);
+        setMagic(GATHER_AMT, UPG_GATHER_AMT);
     }
 
-    public FlowerPower(CardInfo cardInfo) {
+    public Coalescence(CardInfo cardInfo) {
         super(cardInfo);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GatherMaterialAction(1, false, new ArrayList<>(Arrays.asList(MaterialCategory.FLOWERS))));
-        addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
+        addToBot(new GatherMaterialAction(this.magicNumber, false, MaterialCategory.getCategoriesOfRarity(new int[]{0, 1})));
+        addToBot(new SynthesizeAction());
     }
 
     @Override
     public AbstractCard makeCopy() { //Optional
-        return new FlowerPower();
+        return new Coalescence();
     }
 }

@@ -277,5 +277,56 @@
   "${modID}:CarefulPlanning": {
     "NAME": "Careful Planning",
     "DESCRIPTION": "The next ${modID}:Synthesis will return a random ${modID}:Material."
+  },
+  "${modID}:LightningReflex": {
+    "NAME": "Lightning Reflex",
+    "DESCRIPTION": "Double the amount of ${modID}:Chain you gain.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Double the amount of ${modID}:Chain you gain."
+  },
+  "${modID}:Decomposition": {
+    "NAME": "Decomposition",
+    "DESCRIPTION": "Deal !D! damage. Apply !M! Vulnerable for every level of ${modID}:Tactics.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Apply ",
+      " Vulnerable.)"
+    ]
+  },
+  "${modID}:MoonPulsar": {
+    "NAME": "Moon Pulsar",
+    "DESCRIPTION": "Deal !D! damage to all enemies !M! times."
+  },
+  "${modID}:SouthernCross": {
+    "NAME": "Southern Cross",
+    "DESCRIPTION": "Deal !D! damage. Deal !D! extra damage if there is only one enemy."
+  },
+  "${modID}:CrystallizingAura": {
+    "NAME": "Crystallizing Aura",
+    "DESCRIPTION": "Apply !M! Weak. Exhaust."
+  },
+  "${modID}:ShiningBlast": {
+    "NAME": "Shining Blast",
+    "DESCRIPTION": "Gain 1 ${modID}:Lightning_Element for every enemy. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Gain 1 ${modID}:Lightning_Element for every enemy. Exhaust."
+  },
+  "${modID}:HeavensQuasar": {
+    "NAME": "Heavens Quasar",
+    "DESCRIPTION": "Deal !D! damage. Gain !M! ${modID}:Wind_Element."
+  },
+  "${modID}:Coalescence": {
+    "NAME": "Coalescence",
+    "DESCRIPTION": "Gather !M! common or uncommon ${modID}:Materials. ${modID}:Synthesize."
+  },
+  "${modID}:StrategicOnslaught": {
+    "NAME": "Strategic Onslaught",
+    "DESCRIPTION": "Deal !D! damage to all enemies for each level of ${modID}:Tactics. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies for each level of ${modID}:Tactics."
+  },
+  "${modID}:Mindfulness": {
+    "NAME": "Mindfulness",
+    "DESCRIPTION": "Your ${modID}:Tactics_Level will no longer reset every turn."
+  },
+  "${modID}:CrescentSweep": {
+    "NAME": "Crescent Sweep",
+    "DESCRIPTION": "Deal !D! damage to all enemies, but damage decreases by 3 to each subsequent enemy."
   }
 }

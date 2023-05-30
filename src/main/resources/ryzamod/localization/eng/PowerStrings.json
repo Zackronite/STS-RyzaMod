@@ -109,5 +109,11 @@
     "DESCRIPTIONS": [
       "Your next #ySynthesis will return a random #yMaterial."
     ]
+  },
+  "${modID}:LightningReflexPower": {
+    "NAME": "Lightning Reflex",
+    "DESCRIPTIONS": [
+      "Double any #yChain increases."
+    ]
   }
 }

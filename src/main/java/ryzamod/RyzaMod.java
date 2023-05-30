@@ -234,10 +234,10 @@ public class RyzaMod implements
             RyzaCharacter player = (RyzaCharacter) AbstractDungeon.player;
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player,
                     player,
-                    new TacticsLevelPower(player, RyzaCharacter.tacticsLevel)));
+                    new TacticsLevelPower(player, RyzaCharacter.MIN_TACTICS_LEVEL)));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player,
                     player,
-                    new ChainPower(player, RyzaCharacter.chainLevel)));
+                    new ChainPower(player, RyzaCharacter.MIN_CHAIN_LEVEL)));
         }
     }
 

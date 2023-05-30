@@ -6,12 +6,10 @@ import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import ryzamod.RyzaMod;
+import ryzamod.character.RyzaCharacter;
 import ryzamod.powers.TacticsLevelPower;
 
 public class ChangeTacticsLevelAction extends AbstractGameAction {
-    public static final int MIN_TACTICS = 1;
-    public static final int MAX_TACTICS = 5;
-
     public ChangeTacticsLevelAction(int amount) {
         this.amount = amount;
         this.actionType = ActionType.POWER;
@@ -25,13 +23,13 @@ public class ChangeTacticsLevelAction extends AbstractGameAction {
 
         if (p.hasPower(tacticsID)) {
             int tacticsLevel = p.getPower(tacticsID).amount;
-            if (tacticsLevel + this.amount < MIN_TACTICS) {
-                if (tacticsLevel != MIN_TACTICS) {
-                    addToBot(new ReducePowerAction(p, p, new TacticsLevelPower(p, 1), tacticsLevel - MIN_TACTICS));
+            if (tacticsLevel + this.amount < RyzaCharacter.MIN_TACTICS_LEVEL) {
+                if (tacticsLevel != RyzaCharacter.MIN_TACTICS_LEVEL) {
+                    addToBot(new ReducePowerAction(p, p, new TacticsLevelPower(p, 1), tacticsLevel - RyzaCharacter.MIN_TACTICS_LEVEL));
                 }
-            } else if (tacticsLevel + this.amount > MAX_TACTICS) {
-                if (tacticsLevel != MAX_TACTICS) {
-                    addToBot(new ApplyPowerAction(p, p, new TacticsLevelPower(p, 1), MAX_TACTICS - tacticsLevel));
+            } else if (tacticsLevel + this.amount > RyzaCharacter.MAX_TACTICS_LEVEL) {
+                if (tacticsLevel != RyzaCharacter.MAX_TACTICS_LEVEL) {
+                    addToBot(new ApplyPowerAction(p, p, new TacticsLevelPower(p, 1), RyzaCharacter.MAX_TACTICS_LEVEL - tacticsLevel));
                 }
             } else {
                 if (this.amount > 0) {

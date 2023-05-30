@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import ryzamod.RyzaMod;
+import ryzamod.character.RyzaCharacter;
 
 public class TacticsLevelPower extends BasePower {
     public static final String POWER_ID = RyzaMod.makeID("Tactics Level");
@@ -14,11 +15,11 @@ public class TacticsLevelPower extends BasePower {
     public TacticsLevelPower(AbstractCreature owner, int amount) {
         super(POWER_ID, PowerType.BUFF, false, owner, amount);
         this.description = powerStrings.DESCRIPTIONS[0];
-        if (this.amount >= 5) {
-            this.amount = 5;
+        if (this.amount >= RyzaCharacter.MAX_TACTICS_LEVEL) {
+            this.amount = RyzaCharacter.MAX_TACTICS_LEVEL;
         }
-        if (this.amount <= 1) {
-            this.amount = 1;
+        if (this.amount <= RyzaCharacter.MIN_TACTICS_LEVEL) {
+            this.amount = RyzaCharacter.MIN_TACTICS_LEVEL;
         }
         this.canGoNegative = false;
     }
@@ -28,8 +29,8 @@ public class TacticsLevelPower extends BasePower {
         if (this.owner.isPlayer) {
             AbstractPlayer player = (AbstractPlayer) owner;
             if (!player.hasPower(RyzaMod.makeID("MindfulnessPower"))) {
-                if (this.amount > 1) {
-                    addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, this.amount - 1));
+                if (this.amount > RyzaCharacter.MIN_TACTICS_LEVEL) {
+                    addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, this.amount - RyzaCharacter.MIN_TACTICS_LEVEL));
                 }
             }
         }
@@ -38,22 +39,22 @@ public class TacticsLevelPower extends BasePower {
     public void stackPower(int stackAmount) {
         this.fontScale = 8f;
         this.amount += stackAmount;
-        if (this.amount >= 5) {
-            this.amount = 5;
+        if (this.amount >= RyzaCharacter.MAX_TACTICS_LEVEL) {
+            this.amount = RyzaCharacter.MAX_TACTICS_LEVEL;
         }
-        if (this.amount <= 1) {
-            this.amount = 1;
+        if (this.amount <= RyzaCharacter.MIN_TACTICS_LEVEL) {
+            this.amount = RyzaCharacter.MIN_TACTICS_LEVEL;
         }
     }
 
     public void reducePower(int reduceAmount) {
         this.fontScale = 8f;
         this.amount -= reduceAmount;
-        if (this.amount >= 5) {
-            this.amount = 5;
+        if (this.amount >= RyzaCharacter.MAX_TACTICS_LEVEL) {
+            this.amount = RyzaCharacter.MAX_TACTICS_LEVEL;
         }
-        if (this.amount <= 1) {
-            this.amount = 1;
+        if (this.amount <= RyzaCharacter.MIN_TACTICS_LEVEL) {
+            this.amount = RyzaCharacter.MIN_TACTICS_LEVEL;
         }
     }
 
